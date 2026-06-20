@@ -1,0 +1,15 @@
+{
+    "categories": {
+        "0": "image",
+        "1": "productivity"
+    },
+    "data_tracked": false,
+    "demo_page": "https://pdf-view-93394.bubbleapps.io/version-test",
+    "description": "An elegant and flexible PDF viewer for Bubble. Supports custom UI options, zoom presets, search capabilities, and multi-language display to enhance document viewing inside your application.",
+    "image": "//meta-q.cdn.bubble.io/f1765408802978x905578332345828800/logo.png",
+    "license": "open_source",
+    "link": "https://pdf-view-93394.bubbleapps.io/version-test",
+    "name": "PDF Vision Viewer",
+    "platforms_new": "web",
+    "plugin_instructions": "An elegant and flexible PDF viewer for Bubble. Supports custom UI options, zoom presets, search capabilities, and multi-language display to enhance document viewing inside your application."
+}

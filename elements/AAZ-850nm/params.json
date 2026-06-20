@@ -1,0 +1,201 @@
+{
+    "add_is_visible": true,
+    "add_large_file_upload_properties": false,
+    "category": "visual elements",
+    "default_dim": {
+        "height": 400,
+        "width": 600
+    },
+    "display": "Pdf View",
+    "fields": {
+        "AAE": {
+            "caption": "PDF Url",
+            "default_val": "",
+            "doc": "choose the pdf url you want to render & Must include https:// or http://",
+            "editor": "DynamicValue",
+            "name": "pdf_url",
+            "rank": 1,
+            "value": "file"
+        },
+        "AAF": {
+            "caption": "pdf viewer ID",
+            "editor": "DynamicValue",
+            "name": "pdf_viewer_id",
+            "rank": 2,
+            "value": "text"
+        },
+        "AAG": {
+            "caption": "Page to Fit",
+            "default_val": false,
+            "editor": "DynamicValue",
+            "name": "page_to_fit",
+            "rank": 5,
+            "value": "boolean"
+        },
+        "AAH": {
+            "caption": "Remove Download",
+            "default_val": false,
+            "editor": "DynamicValue",
+            "name": "remove_download",
+            "options": "",
+            "rank": 6,
+            "value": "boolean"
+        },
+        "AAI": {
+            "caption": "Remove Print",
+            "default_val": false,
+            "editor": "DynamicValue",
+            "name": "remove_print",
+            "rank": 8,
+            "value": "boolean"
+        },
+        "AAJ": {
+            "caption": "Remove Search",
+            "default_val": false,
+            "editor": "DynamicValue",
+            "name": "remove_search",
+            "rank": 9,
+            "value": "boolean"
+        },
+        "AAK": {
+            "caption": "Remove Left Toggle",
+            "default_val": false,
+            "editor": "DynamicValue",
+            "name": "remove_left_toggle",
+            "rank": 11,
+            "value": "boolean"
+        },
+        "AAL": {
+            "caption": "Remove Presentation Mode",
+            "default_val": false,
+            "editor": "DynamicValue",
+            "name": "remove_presentation_mode",
+            "rank": 10,
+            "value": "boolean"
+        },
+        "AAM": {
+            "caption": "Remove Bookmark",
+            "default_val": false,
+            "editor": "DynamicValue",
+            "name": "remove_bookmark",
+            "rank": 12,
+            "value": "boolean"
+        },
+        "AAN": {
+            "caption": "Remove Top Toolbar",
+            "default_val": false,
+            "editor": "DynamicValue",
+            "name": "remove_top_toolbar",
+            "rank": 13,
+            "value": "boolean"
+        },
+        "AAO": {
+            "caption": "Remove File Open",
+            "default_val": false,
+            "editor": "DynamicValue",
+            "name": "remove_file_open",
+            "options": "",
+            "rank": 14,
+            "value": "boolean"
+        },
+        "AAP": {
+            "caption": "Remove Right toggle",
+            "default_val": false,
+            "editor": "DynamicValue",
+            "name": "remove_right_toggle",
+            "rank": 15,
+            "value": "boolean"
+        },
+        "AAQ": {
+            "caption": "Starting Page Number",
+            "default_val": 1,
+            "editor": "DynamicValue",
+            "name": "start_page",
+            "rank": 3,
+            "value": "number"
+        },
+        "AAR": {
+            "caption": "Viewer Language",
+            "default_val": "en-US",
+            "doc": "Viewer language are en-US,fr",
+            "editor": "DynamicValue",
+            "in_style": false,
+            "name": "viewer_language",
+            "optional": true,
+            "options": "",
+            "rank": 4,
+            "value": "text"
+        },
+        "AAS": {
+            "caption": "Rename Download File",
+            "default_val": "",
+            "doc": "If you are renaming the downloading file then please include file extension (Example document.pdf)",
+            "editor": "DynamicValue",
+            "name": "rename_download_file",
+            "optional": true,
+            "rank": 7,
+            "value": "text"
+        },
+        "AAT": {
+            "caption": "Search Word",
+            "editor": "DynamicValue",
+            "long_text": true,
+            "name": "search_word",
+            "optional": true,
+            "rank": 16,
+            "value": "text"
+        },
+        "AAU": {
+            "caption": "App Name",
+            "editor": "DynamicValue",
+            "name": "app_name",
+            "optional": true,
+            "rank": 0,
+            "value": "text"
+        },
+        "AAV": {
+            "caption": "Background Color",
+            "default_val": "rgba(0, 0, 0, 1)",
+            "doc": "Viewer Bg color",
+            "editor": "Color",
+            "in_style": false,
+            "name": "background_color",
+            "rank": 17
+        },
+        "AAW": {
+            "caption": "Text Color",
+            "default_val": "rgba(255, 255, 255, 1)",
+            "doc": "Viewer Text color",
+            "editor": "Color",
+            "name": "text_color",
+            "rank": 18
+        }
+    },
+    "has_reset_fn": true,
+    "icon": "ion-eye",
+    "property_applications": {
+        "BoxShadow": true,
+        "MinWidth": true,
+        "resizable": true
+    },
+    "states": {
+        "AAX": {
+            "caption": "Is Valid PDF?",
+            "doc": "It returns valid pdf or not",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "is_valid_pdf",
+            "value": "boolean"
+        },
+        "AAY": {
+            "caption": "Total Pdf Pages",
+            "doc": "It return number of pdf pages",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "total_pages",
+            "value": "number"
+        }
+    }
+}
