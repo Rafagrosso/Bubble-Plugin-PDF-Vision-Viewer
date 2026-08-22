@@ -1,0 +1,34 @@
+{
+    "caption": "Fill PDF form & download",
+    "name": "fill_form",
+    "fields": {
+        "ACY": {
+            "caption": "Form data (JSON)",
+            "name": "form_data",
+            "value": "text",
+            "rank": 0,
+            "editor": "DynamicValue",
+            "long_text": true,
+            "doc": "JSON object mapping field names to values, e.g. {\"name\":\"Ana\",\"accept\":true}"
+        },
+        "ACZ": {
+            "caption": "File name",
+            "name": "filename",
+            "value": "text",
+            "rank": 1,
+            "editor": "DynamicValue",
+            "optional": true
+        },
+        "ADA": {
+            "caption": "Flatten (make read-only)",
+            "name": "flatten",
+            "value": "boolean",
+            "rank": 2,
+            "editor": "DynamicValue",
+            "default_val": false
+        }
+    },
+    "code": {
+        "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.fillForm(properties.form_data, properties.filename, properties.flatten);\n}"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "caption": "Set zoom (%)",
+    "name": "set_zoom",
+    "fields": {
+        "ACQ": {
+            "caption": "Zoom percent",
+            "name": "zoom_percent",
+            "value": "number",
+            "rank": 0,
+            "editor": "DynamicValue",
+            "doc": "e.g. 100 for 100%"
+        }
+    },
+    "code": {
+        "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.setZoom(properties.zoom_percent);\n}"
+    }
+}

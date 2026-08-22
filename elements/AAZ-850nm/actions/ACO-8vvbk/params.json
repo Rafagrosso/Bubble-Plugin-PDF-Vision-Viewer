@@ -1,0 +1,57 @@
+{
+    "caption": "Stamp image on page & download",
+    "name": "stamp_image",
+    "fields": {
+        "ADB": {
+            "caption": "Image URL (PNG/JPG)",
+            "name": "image_url",
+            "value": "text",
+            "rank": 0,
+            "editor": "DynamicValue",
+            "doc": "e.g. a signature image"
+        },
+        "ADC": {
+            "caption": "Page number",
+            "name": "page",
+            "value": "number",
+            "rank": 1,
+            "editor": "DynamicValue",
+            "default_val": 1
+        },
+        "ADD": {
+            "caption": "X position (% from left)",
+            "name": "x_percent",
+            "value": "number",
+            "rank": 2,
+            "editor": "DynamicValue",
+            "default_val": 60
+        },
+        "ADE": {
+            "caption": "Y position (% from top)",
+            "name": "y_percent",
+            "value": "number",
+            "rank": 3,
+            "editor": "DynamicValue",
+            "default_val": 80
+        },
+        "ADF": {
+            "caption": "Width (% of page width)",
+            "name": "width_percent",
+            "value": "number",
+            "rank": 4,
+            "editor": "DynamicValue",
+            "default_val": 20
+        },
+        "ADG": {
+            "caption": "File name",
+            "name": "filename",
+            "value": "text",
+            "rank": 5,
+            "editor": "DynamicValue",
+            "optional": true
+        }
+    },
+    "code": {
+        "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.stampImage(properties.image_url, properties.page, properties.x_percent, properties.y_percent, properties.width_percent, properties.filename);\n}"
+    }
+}

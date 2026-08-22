@@ -1,0 +1,8 @@
+{
+    "caption": "Zoom out",
+    "name": "zoom_out",
+    "fields": {},
+    "code": {
+        "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.zoomOut();\n}"
+    }
+}

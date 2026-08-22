@@ -11,7 +11,7 @@
         "AAE": {
             "caption": "PDF Url",
             "default_val": "",
-            "doc": "choose the pdf url you want to render & Must include https:// or http://",
+            "doc": "URL of the PDF to render. Accepts https://, http:// and Bubble file URLs starting with //",
             "editor": "DynamicValue",
             "name": "pdf_url",
             "rank": 1,
@@ -19,14 +19,17 @@
         },
         "AAF": {
             "caption": "pdf viewer ID",
+            "doc": "(Optional) Legacy identifier, kept for backward compatibility. No longer required.",
             "editor": "DynamicValue",
             "name": "pdf_viewer_id",
+            "optional": true,
             "rank": 2,
             "value": "text"
         },
         "AAG": {
             "caption": "Page to Fit",
             "default_val": false,
+            "doc": "(Legacy) Start with the whole page fitted in the viewer. Prefer the 'Initial Zoom' property.",
             "editor": "DynamicValue",
             "name": "page_to_fit",
             "rank": 5,
@@ -35,6 +38,7 @@
         "AAH": {
             "caption": "Remove Download",
             "default_val": false,
+            "doc": "Hides the download button. Note: this hides UI only, it does not protect the file itself.",
             "editor": "DynamicValue",
             "name": "remove_download",
             "options": "",
@@ -60,6 +64,7 @@
         "AAK": {
             "caption": "Remove Left Toggle",
             "default_val": false,
+            "doc": "Hides the sidebar (thumbnails/bookmarks) toggle button.",
             "editor": "DynamicValue",
             "name": "remove_left_toggle",
             "rank": 11,
@@ -76,6 +81,7 @@
         "AAM": {
             "caption": "Remove Bookmark",
             "default_val": false,
+            "doc": "Hides the bookmarks (document outline) tab in the sidebar.",
             "editor": "DynamicValue",
             "name": "remove_bookmark",
             "rank": 12,
@@ -92,6 +98,7 @@
         "AAO": {
             "caption": "Remove File Open",
             "default_val": false,
+            "doc": "(Deprecated) The new viewer has no file-open button; kept for backward compatibility.",
             "editor": "DynamicValue",
             "name": "remove_file_open",
             "options": "",
@@ -101,6 +108,7 @@
         "AAP": {
             "caption": "Remove Right toggle",
             "default_val": false,
+            "doc": "(Deprecated) The new viewer has no right panel; kept for backward compatibility.",
             "editor": "DynamicValue",
             "name": "remove_right_toggle",
             "rank": 15,
@@ -116,8 +124,8 @@
         },
         "AAR": {
             "caption": "Viewer Language",
-            "default_val": "en-US",
-            "doc": "Viewer language are en-US,fr",
+            "default_val": "auto",
+            "doc": "UI language: auto (browser language), en, pt, fr, es or de.",
             "editor": "DynamicValue",
             "in_style": false,
             "name": "viewer_language",
@@ -129,7 +137,7 @@
         "AAS": {
             "caption": "Rename Download File",
             "default_val": "",
-            "doc": "If you are renaming the downloading file then please include file extension (Example document.pdf)",
+            "doc": "If set, downloads use this file name (include the .pdf extension, e.g. document.pdf).",
             "editor": "DynamicValue",
             "name": "rename_download_file",
             "optional": true,
@@ -138,6 +146,7 @@
         },
         "AAT": {
             "caption": "Search Word",
+            "doc": "Term searched (and highlighted) automatically after the PDF loads. Can be changed dynamically.",
             "editor": "DynamicValue",
             "long_text": true,
             "name": "search_word",
@@ -147,6 +156,7 @@
         },
         "AAU": {
             "caption": "App Name",
+            "doc": "(Optional) Your Bubble app name; used to normalize *.cdn.bubble.io file URLs.",
             "editor": "DynamicValue",
             "name": "app_name",
             "optional": true,
@@ -155,8 +165,8 @@
         },
         "AAV": {
             "caption": "Background Color",
-            "default_val": "rgba(0, 0, 0, 1)",
-            "doc": "Viewer Bg color",
+            "default_val": "rgba(42, 42, 46, 1)",
+            "doc": "Viewer background color.",
             "editor": "Color",
             "in_style": false,
             "name": "background_color",
@@ -164,11 +174,74 @@
         },
         "AAW": {
             "caption": "Text Color",
-            "default_val": "rgba(255, 255, 255, 1)",
-            "doc": "Viewer Text color",
+            "default_val": "rgba(245, 245, 245, 1)",
+            "doc": "Toolbar/UI text color.",
             "editor": "Color",
             "name": "text_color",
             "rank": 18
+        },
+        "ABA": {
+            "caption": "Show Thumbnails Panel",
+            "default_val": false,
+            "doc": "Opens the thumbnails sidebar when the viewer loads.",
+            "editor": "DynamicValue",
+            "name": "show_thumbnails",
+            "rank": 19,
+            "value": "boolean"
+        },
+        "ABB": {
+            "caption": "Protected Mode",
+            "default_val": false,
+            "doc": "Hides download/print, disables right-click, text selection and Ctrl/Cmd+S/P/C inside the viewer. Note: no client-side protection is absolute.",
+            "editor": "DynamicValue",
+            "name": "protected_mode",
+            "rank": 20,
+            "value": "boolean"
+        },
+        "ABC": {
+            "caption": "Watermark Text",
+            "doc": "Dynamic diagonal watermark repeated over the pages (e.g. Current User's email). Leave empty for none.",
+            "editor": "DynamicValue",
+            "name": "watermark_text",
+            "optional": true,
+            "rank": 21,
+            "value": "text"
+        },
+        "ABD": {
+            "caption": "Watermark Opacity",
+            "default_val": 0.14,
+            "doc": "Watermark opacity between 0 and 1.",
+            "editor": "DynamicValue",
+            "name": "watermark_opacity",
+            "optional": true,
+            "rank": 22,
+            "value": "number"
+        },
+        "ABE": {
+            "caption": "Theme",
+            "default_val": "dark",
+            "doc": "Base color theme of the viewer chrome. Custom colors below override it.",
+            "editor": "Dropdown",
+            "name": "theme",
+            "options": "dark,light",
+            "rank": 23
+        },
+        "ABF": {
+            "caption": "Accent Color",
+            "default_val": "rgba(59, 130, 246, 1)",
+            "doc": "Color used for active controls and search highlights.",
+            "editor": "Color",
+            "name": "accent_color",
+            "rank": 24
+        },
+        "ABG": {
+            "caption": "Initial Zoom",
+            "default_val": "auto",
+            "doc": "Zoom applied when the document loads. 'auto' fits the page width.",
+            "editor": "Dropdown",
+            "name": "initial_zoom",
+            "options": "auto,page-width,page-fit,50,75,100,125,150,200",
+            "rank": 25
         }
     },
     "has_reset_fn": true,
@@ -181,7 +254,7 @@
     "states": {
         "AAX": {
             "caption": "Is Valid PDF?",
-            "doc": "It returns valid pdf or not",
+            "doc": "true when the current URL was loaded as a valid PDF",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
@@ -190,12 +263,107 @@
         },
         "AAY": {
             "caption": "Total Pdf Pages",
-            "doc": "It return number of pdf pages",
+            "doc": "Number of pages of the loaded PDF",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
             "name": "total_pages",
             "value": "number"
+        },
+        "ABH": {
+            "caption": "Current Page",
+            "doc": "Page currently visible in the viewer",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "current_page",
+            "value": "number"
+        },
+        "ABI": {
+            "caption": "Zoom Level (%)",
+            "doc": "Current zoom level in percent",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "zoom_level",
+            "value": "number"
+        },
+        "ABJ": {
+            "caption": "Is Loading?",
+            "doc": "true while the PDF is being downloaded and prepared",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "is_loading",
+            "value": "boolean"
+        },
+        "ABK": {
+            "caption": "Search Results Count",
+            "doc": "Number of matches of the last search",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "search_results_count",
+            "value": "number"
+        },
+        "ABL": {
+            "caption": "PDF Title",
+            "doc": "Title from the PDF metadata (may be empty)",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "pdf_title",
+            "value": "text"
+        },
+        "ABM": {
+            "caption": "PDF Author",
+            "doc": "Author from the PDF metadata (may be empty)",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "pdf_author",
+            "value": "text"
+        },
+        "ABN": {
+            "caption": "Error Message",
+            "doc": "Technical message of the last load/tool error (empty when none)",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "error_message",
+            "value": "text"
+        }
+    },
+    "events": {
+        "ABO": {
+            "caption": "PDF is loaded",
+            "doc": "Triggered when the PDF finished loading and rendering started",
+            "name": "pdf_loaded"
+        },
+        "ABP": {
+            "caption": "PDF failed to load",
+            "doc": "Triggered when the URL could not be loaded as a PDF (see Error Message state)",
+            "name": "pdf_error"
+        },
+        "ABQ": {
+            "caption": "Page changed",
+            "doc": "Triggered whenever the visible page changes (scroll or navigation)",
+            "name": "page_changed"
+        },
+        "ABR": {
+            "caption": "Search completed",
+            "doc": "Triggered when a search finishes (see Search Results Count state)",
+            "name": "search_completed"
+        },
+        "ABS": {
+            "caption": "Download started",
+            "doc": "Triggered when a download is started (button or action)",
+            "name": "download_started"
+        },
+        "ABT": {
+            "caption": "Print started",
+            "doc": "Triggered when printing is started (button or action)",
+            "name": "print_started"
         }
     }
 }
