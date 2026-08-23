@@ -7,6 +7,38 @@
         "width": 600
     },
     "display": "Pdf View",
+    "events": {
+        "ABQ": {
+            "caption": "PDF is loaded",
+            "doc": "O documento terminou de carregar",
+            "name": "pdf_loaded"
+        },
+        "ABR": {
+            "caption": "PDF failed to load",
+            "doc": "A URL não pôde ser carregada (consulte Error Message)",
+            "name": "pdf_error"
+        },
+        "ABS": {
+            "caption": "Page changed",
+            "doc": "A página visível mudou (rolagem, clique ou ação)",
+            "name": "page_changed"
+        },
+        "ABT": {
+            "caption": "Search completed",
+            "doc": "Uma busca terminou (consulte Search Results Count)",
+            "name": "search_completed"
+        },
+        "ABU": {
+            "caption": "Download started",
+            "doc": "Download iniciado (botão da toolbar ou qualquer ação que baixa arquivo)",
+            "name": "download_started"
+        },
+        "ABV": {
+            "caption": "Print started",
+            "doc": "Impressão iniciada (botão ou ação)",
+            "name": "print_started"
+        }
+    },
     "fields": {
         "AAE": {
             "caption": "PDF Url",
@@ -21,7 +53,7 @@
             "caption": "pdf viewer ID",
             "editor": "DynamicValue",
             "name": "pdf_viewer_id",
-            "rank": 2,
+            "rank": 26,
             "value": "text"
         },
         "AAG": {
@@ -29,81 +61,71 @@
             "default_val": false,
             "editor": "DynamicValue",
             "name": "page_to_fit",
-            "rank": 5,
+            "rank": 27,
             "value": "boolean"
         },
         "AAH": {
             "caption": "Remove Download",
             "default_val": false,
+            "doc": "Esconde o botão de download",
             "editor": "DynamicValue",
             "name": "remove_download",
             "options": "",
-            "rank": 6,
+            "rank": 18,
             "value": "boolean"
         },
         "AAI": {
             "caption": "Remove Print",
             "default_val": false,
+            "doc": "Esconde o botão de imprimir",
             "editor": "DynamicValue",
             "name": "remove_print",
-            "rank": 8,
+            "rank": 19,
             "value": "boolean"
         },
         "AAJ": {
             "caption": "Remove Search",
             "default_val": false,
+            "doc": "Esconde a caixa de busca",
             "editor": "DynamicValue",
             "name": "remove_search",
-            "rank": 9,
+            "rank": 20,
             "value": "boolean"
         },
         "AAK": {
             "caption": "Remove Left Toggle",
             "default_val": false,
+            "doc": "Esconde o botão da barra lateral",
             "editor": "DynamicValue",
             "name": "remove_left_toggle",
-            "rank": 11,
+            "rank": 21,
             "value": "boolean"
         },
         "AAL": {
             "caption": "Remove Presentation Mode",
             "default_val": false,
+            "doc": "Esconde o botão de tela cheia",
             "editor": "DynamicValue",
             "name": "remove_presentation_mode",
-            "rank": 10,
+            "rank": 23,
             "value": "boolean"
         },
         "AAM": {
             "caption": "Remove Bookmark",
             "default_val": false,
+            "doc": "Esconde a aba de marcadores (outline)",
             "editor": "DynamicValue",
             "name": "remove_bookmark",
-            "rank": 12,
+            "rank": 22,
             "value": "boolean"
         },
         "AAN": {
             "caption": "Remove Top Toolbar",
             "default_val": false,
+            "doc": "Esconde a toolbar inteira",
             "editor": "DynamicValue",
             "name": "remove_top_toolbar",
-            "rank": 13,
-            "value": "boolean"
-        },
-        "AAO": {
-            "caption": "Remove File Open",
-            "default_val": false,
-            "editor": "DynamicValue",
-            "name": "remove_file_open",
-            "options": "",
-            "rank": 14,
-            "value": "boolean"
-        },
-        "AAP": {
-            "caption": "Remove Right toggle",
-            "default_val": false,
-            "editor": "DynamicValue",
-            "name": "remove_right_toggle",
-            "rank": 15,
+            "rank": 24,
             "value": "boolean"
         },
         "AAQ": {
@@ -111,7 +133,7 @@
             "default_val": 1,
             "editor": "DynamicValue",
             "name": "start_page",
-            "rank": 3,
+            "rank": 2,
             "value": "number"
         },
         "AAR": {
@@ -133,16 +155,17 @@
             "editor": "DynamicValue",
             "name": "rename_download_file",
             "optional": true,
-            "rank": 7,
+            "rank": 6,
             "value": "text"
         },
         "AAT": {
             "caption": "Search Word",
+            "doc": "Busca e destaca automaticamente ao carregar; reage a mudanças dinâmicas",
             "editor": "DynamicValue",
             "long_text": true,
             "name": "search_word",
             "optional": true,
-            "rank": 16,
+            "rank": 5,
             "value": "text"
         },
         "AAU": {
@@ -150,25 +173,108 @@
             "editor": "DynamicValue",
             "name": "app_name",
             "optional": true,
-            "rank": 0,
+            "rank": 7,
             "value": "text"
         },
         "AAV": {
             "caption": "Background Color",
-            "default_val": "rgba(0, 0, 0, 1)",
-            "doc": "Viewer Bg color",
+            "default_val": "rgba(42,42,46,1)",
+            "doc": "Fundo do viewer",
             "editor": "Color",
             "in_style": false,
             "name": "background_color",
-            "rank": 17
+            "rank": 10
         },
         "AAW": {
             "caption": "Text Color",
-            "default_val": "rgba(255, 255, 255, 1)",
-            "doc": "Viewer Text color",
+            "default_val": "rgba(245,245,245,1)",
+            "doc": "Texto da toolbar/UI",
             "editor": "Color",
             "name": "text_color",
-            "rank": 18
+            "rank": 11
+        },
+        "AAy": {
+            "caption": "Initial Zoom",
+            "default_val": "auto",
+            "editor": "Dropdown",
+            "name": "initial_zoom",
+            "options": "auto,page-width,page-fit,50,75,100,125,150,200",
+            "rank": 3
+        },
+        "AAz": {
+            "caption": "Conteúdo e comportamento",
+            "editor": "Label",
+            "name": "Conteúdo e comportamento",
+            "rank": 0
+        },
+        "ABA": {
+            "caption": "Aparência",
+            "editor": "Label",
+            "name": "Aparência",
+            "rank": 8
+        },
+        "ABB": {
+            "caption": "Theme",
+            "default_val": "dark",
+            "doc": "dark ou light; as cores abaixo sobrepõem o tema",
+            "editor": "Dropdown",
+            "name": "theme",
+            "options": "dark,light",
+            "rank": 9
+        },
+        "ABC": {
+            "caption": "Accent Color",
+            "default_val": "rgba(59,130,246,1)",
+            "doc": "Controles ativos e destaque da busca",
+            "editor": "Color",
+            "name": "accent_color",
+            "rank": 12
+        },
+        "ABD": {
+            "caption": "Show Thumbnails Panel",
+            "default_val": true,
+            "doc": "Abre a barra de miniaturas ao carregar",
+            "editor": "Checkbox",
+            "name": "show_thumbnails",
+            "rank": 13
+        },
+        "ABE": {
+            "caption": "Watermark Text",
+            "doc": "Marca d'água diagonal repetida (ex.: e-mail do usuário atual) ",
+            "editor": "DynamicValue",
+            "name": "watermark_text",
+            "rank": 14,
+            "value": "text"
+        },
+        "ABF": {
+            "caption": "Watermark Opacity",
+            "default_val": 0.14,
+            "doc": "Opacidade da marca d'água (0 a 1)",
+            "editor": "DynamicValue",
+            "name": "watermark_opacity",
+            "optional": true,
+            "rank": 15,
+            "value": "number"
+        },
+        "ABG": {
+            "caption": "Proteção e visibilidade da UI",
+            "editor": "Label",
+            "name": "Proteção e visibilidade da UI",
+            "rank": 16
+        },
+        "ABH": {
+            "caption": "Protected Mode",
+            "default_val": false,
+            "doc": "Esconde download/print; bloqueia clique-direito, seleção de texto e Ctrl/Cmd+S/P/C",
+            "editor": "Checkbox",
+            "name": "protected_mode",
+            "rank": 17
+        },
+        "ABI": {
+            "caption": "Legadas",
+            "editor": "Label",
+            "name": "Legadas",
+            "rank": 25
         }
     },
     "has_reset_fn": true,
@@ -196,6 +302,69 @@
             },
             "name": "total_pages",
             "value": "number"
+        },
+        "ABJ": {
+            "caption": "Current Page",
+            "doc": "Página visível agora (atualiza ao rolar/navegar)",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "current_page",
+            "value": "number"
+        },
+        "ABK": {
+            "caption": "Zoom Level (%)",
+            "doc": "Zoom atual em % (ex.: 142)",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "zoom_level",
+            "value": "number"
+        },
+        "ABL": {
+            "caption": "Is Loading?",
+            "doc": "true durante download/preparação do PDF",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "is_loading",
+            "value": "boolean"
+        },
+        "ABM": {
+            "caption": "Search Results Count",
+            "doc": "Nº de ocorrências da última busca",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "search_results_count",
+            "value": "number"
+        },
+        "ABN": {
+            "caption": "PDF Title",
+            "doc": "Título dos metadados (pode ser vazio)",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "pdf_title",
+            "value": "text"
+        },
+        "ABO": {
+            "caption": "PDF Author",
+            "doc": "Autor dos metadados (pode ser vazio)",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "pdf_author",
+            "value": "text"
+        },
+        "ABP": {
+            "caption": "Error Message",
+            "doc": "Mensagem técnica do último erro (vazio quando ok)",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "error_message",
+            "value": "text"
         }
     }
 }
