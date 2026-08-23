@@ -1,75 +1,74 @@
 function(instance, properties, context) {
-    var pdf_url = properties.pdf_url;
-    if (!pdf_url || String(pdf_url).trim() === '') {
-        try {
-            var idname = "pdf_" + properties.pdf_viewer_id;
-            var frame = instance.canvas.find('#' + idname);
-            if (!frame || !frame.length) frame = instance.canvas.find('.iframecontent');
-            if (frame && frame.length) {
-                frame.each(function() { try { this.src = 'about:blank'; } catch(_){} });
-                frame.remove();
-            }
-            instance.publishState && instance.publishState('is_valid_pdf', false);
-            instance.publishState && instance.publishState('total_pages', 0);
-            instance.data.created = false;
-        } catch (e) {
-            try { instance.publishState && instance.publishState('is_valid_pdf', false); instance.publishState && instance.publishState('total_pages', 0); } catch(_) {}
-            instance.data.created = false;
+    var pv = instance.data.pv;
+    if (!pv) return;
+
+    // ------------------------------------------------------------------
+    // Normalize the PDF URL
+    // ------------------------------------------------------------------
+    var url = String(properties.pdf_url || '').trim();
+    if (url && url.slice(0, 2) === '//') url = 'https:' + url;
+    if (url && /\.cdn\.bubble\.io/.test(url) && properties.app_name) {
+        // legacy behavior: point CDN urls at the app's own CDN host
+        var m = url.match(/\/\/(.*?)\.cdn\.bubble\.io/);
+        if (m && m[1] && m[1] !== properties.app_name) {
+            url = url.replace(m[1] + '.cdn.bubble.io', properties.app_name + '.cdn.bubble.io');
         }
+    }
+
+    // ------------------------------------------------------------------
+    // UI options (safe to re-apply on every update, no PDF reload)
+    // ------------------------------------------------------------------
+    pv.applyOptions({
+        language: properties.viewer_language && properties.viewer_language !== 'auto'
+            ? properties.viewer_language : '',
+        theme: properties.theme || 'dark',
+        backgroundColor: properties.background_color,
+        textColor: properties.text_color,
+        accentColor: properties.accent_color,
+        hideToolbar: properties.remove_top_toolbar,
+        hideDownload: properties.remove_download,
+        hidePrint: properties.remove_print,
+        hideSearch: properties.remove_search,
+        hideSidebarToggle: properties.remove_left_toggle,
+        hidePresentation: properties.remove_presentation_mode,
+        hideOutline: properties.remove_bookmark,
+        showThumbnails: properties.show_thumbnails,
+        protectedMode: properties.protected_mode,
+        watermarkText: properties.watermark_text,
+        watermarkOpacity: properties.watermark_opacity,
+        renameFile: properties.rename_download_file
+    });
+
+    // ------------------------------------------------------------------
+    // Load / reload only when the URL actually changed
+    // ------------------------------------------------------------------
+    var initialZoom = properties.initial_zoom && properties.initial_zoom !== 'auto'
+        ? properties.initial_zoom
+        : (properties.page_to_fit ? 'page-fit' : 'auto');
+
+    if (url !== instance.data.lastUrl) {
+        instance.data.lastUrl = url;
+        instance.data.lastSearch = properties.search_word || '';
+        instance.data.lastStartPage = properties.start_page;
+        if (!url) { pv.clear(); return; }
+        pv.load(url, {
+            startPage: properties.start_page,
+            initialZoom: initialZoom,
+            searchWord: properties.search_word,
+            fileName: properties.rename_download_file
+        });
         return;
     }
-    var domain_url = 'https://s3.amazonaws.com/appforest_uf';
-    if (/.cdn.bubble.io/.test(pdf_url)){
-        domain_url = 'https://'+properties.app_name+'.cdn.bubble.io';
-        let result = pdf_url.match(new RegExp("//" + "(.*)" + ".cdn.bubble.io"));
-        pdf_url = pdf_url.replace(result[1],properties.app_name);
+    if (!url) return;
+
+    // Dynamic changes on an already-loaded document
+    var sw = properties.search_word || '';
+    if (sw !== instance.data.lastSearch) {
+        instance.data.lastSearch = sw;
+        if (sw) pv.search(sw); else pv.clearSearch();
     }
-    var textname = "pdf_"+properties.pdf_viewer_id;
-    var url_params  = properties.remove_top_toolbar ? '&toolbar=1' : '';
-  	url_params +=  properties.remove_bookmark ? '&bookmark=1' : '';
-    url_params +=  properties.remove_left_toggle ? '&lefttoggle=1' : '';
-    url_params +=  properties.background_color ? '&bgcolor='+properties.background_color.replace('#','') : '';
-    url_params +=  properties.text_color ? '&textcolor='+properties.text_color.replace('#','') : '';
-    url_params +=  properties.remove_presentation_mode ? '&presentation=1' : '';
-    url_params +=  properties.remove_search ? '&rsearch=1' : '';
-    url_params +=  properties.remove_download ? '&download=1' : '';
-    url_params +=  properties.remove_print ? '&print=1' : '';
-    url_params +=  properties.remove_file_open ? '&open=1' : '';
-    url_params +=  properties.remove_right_toggle ? '&righttoggle=1' : '';
-    var page_to_fit =  properties.page_to_fit ? '&zoom=page-fit' : '';
-    var language = properties.viewer_language ? properties.viewer_language : 'en-US';
-    const { PDFDocument} = PDFLib;
-    var checkpdf;
-    var pages = 0;
-    var xhr = new XMLHttpRequest();
-    xhr.onload = async function () {
-		await PDFDocument.load(new Uint8Array(xhr.response),{ ignoreEncryption: true })
-        .then(function(pdf) {
-          	pages = pdf.getPages();
-            updatePdfParam(true,pages.length);
-            if(!instance.data.created){
-              instance.data.created=true;
-                pdf_url = pdf_url+(properties.rename_download_file ? '&downloadfname='+properties.rename_download_file : '')+(properties.search_word != "" && properties.search_word != null ? '&search='+properties.search_word : '')+'#page='+(properties.start_page > 0 && properties.start_page <= pages.length ? properties.start_page : 1)+'&locale='+language;
-              var pdfviewer_ele = $('<iframe class="iframecontent" id="'+textname+'" src="'+domain_url+'/f1694536583470x901062478942919300/viewer.html?'+url_params+'&file='+pdf_url+page_to_fit+'"  width="100%" height="100%" frameborder="0" allowfullscreen></iframe>');
-              instance.canvas.append(pdfviewer_ele);
-            }else{
-                pdf_url = pdf_url+(properties.rename_download_file ? '&downloadfname='+properties.rename_download_file : '')+(properties.search_word != ""  && properties.search_word != null ? '&search='+properties.search_word : '')+'#page='+(properties.start_page > 0 && properties.start_page <= pages.length ? properties.start_page : 1)+'&locale='+language;
-                $('#'+textname).attr('src', domain_url+"/f1694536583470x901062478942919300/viewer.html?"+url_params+'&file='+pdf_url+page_to_fit);
-            }
-        }).catch(function(err) {
-            updatePdfParam(false,0);
-        });
-    };
-    try {
-        xhr.open('GET', pdf_url);
-        xhr.responseType = 'arraybuffer';
-        xhr.send();
-    }catch (ex) {
-        checkpdf = false;
-        updatePdfParam(false,0);
-    }
-    function updatePdfParam(valid_pdf,t_page){
-        instance.publishState('is_valid_pdf',valid_pdf);
-    	instance.publishState('total_pages',t_page);
+    if (properties.start_page !== instance.data.lastStartPage) {
+        instance.data.lastStartPage = properties.start_page;
+        if (properties.start_page > 0) pv.goToPage(properties.start_page);
     }
 }

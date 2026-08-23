@@ -1,0 +1,17 @@
+{
+    "caption": "Download PDF",
+    "fields": {
+        "ACS": {
+            "caption": "File name",
+            "name": "filename",
+            "value": "text",
+            "rank": 0,
+            "editor": "DynamicValue",
+            "optional": true,
+            "doc": "Include the .pdf extension. Falls back to Rename Download File / original name."
+        }
+    },
+    "code": {
+        "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.download(properties.filename);\n}"
+    }
+}

@@ -1,6 +1,7 @@
 try {
-    instance.canvas.empty(); 
-    instance.data.created = false;
-} catch(e) {
-    console.log("Erro ao limpar viewer:", e);
+    if (instance.data.pv) instance.data.pv.clear();
+    instance.data.lastUrl = null;
+    instance.data.lastSearch = null;
+} catch (e) {
+    console.log('PDF Vision Viewer - reset error:', e);
 }
