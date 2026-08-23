@@ -1,0 +1,13 @@
+{
+    "caption": "Go to page",
+    "fields": {
+        "ABZ": {
+            "caption": "page (number)",
+            "doc": "",
+            "editor": "DynamicValue",
+            "name": "",
+            "rank": 0,
+            "value": "number"
+        }
+    }
+}

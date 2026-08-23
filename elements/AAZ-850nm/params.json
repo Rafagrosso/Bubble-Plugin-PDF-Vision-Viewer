@@ -7,11 +7,43 @@
         "width": 600
     },
     "display": "Pdf View",
+    "events": {
+        "ABQ": {
+            "caption": "PDF is loaded",
+            "doc": "O documento terminou de carregar",
+            "name": "pdf_loaded"
+        },
+        "ABR": {
+            "caption": "PDF failed to load",
+            "doc": "A URL não pôde ser carregada (consulte Error Message)",
+            "name": "pdf_error"
+        },
+        "ABS": {
+            "caption": "Page changed",
+            "doc": "A página visível mudou (rolagem, clique ou ação)",
+            "name": "page_changed"
+        },
+        "ABT": {
+            "caption": "Search completed",
+            "doc": "Uma busca terminou (consulte Search Results Count)",
+            "name": "search_completed"
+        },
+        "ABU": {
+            "caption": "Download started",
+            "doc": "Download iniciado (botão da toolbar ou qualquer ação que baixa arquivo)",
+            "name": "download_started"
+        },
+        "ABV": {
+            "caption": "Print started",
+            "doc": "Impressão iniciada (botão ou ação)",
+            "name": "print_started"
+        }
+    },
     "fields": {
         "AAE": {
             "caption": "PDF Url",
             "default_val": "",
-            "doc": "URL of the PDF to render. Accepts https://, http:// and Bubble file URLs starting with //",
+            "doc": "choose the pdf url you want to render & Must include https:// or http://",
             "editor": "DynamicValue",
             "name": "pdf_url",
             "rank": 1,
@@ -19,99 +51,81 @@
         },
         "AAF": {
             "caption": "pdf viewer ID",
-            "doc": "(Optional) Legacy identifier, kept for backward compatibility. No longer required.",
             "editor": "DynamicValue",
             "name": "pdf_viewer_id",
-            "optional": true,
-            "rank": 2,
+            "rank": 26,
             "value": "text"
         },
         "AAG": {
             "caption": "Page to Fit",
             "default_val": false,
-            "doc": "(Legacy) Start with the whole page fitted in the viewer. Prefer the 'Initial Zoom' property.",
             "editor": "DynamicValue",
             "name": "page_to_fit",
-            "rank": 5,
+            "rank": 27,
             "value": "boolean"
         },
         "AAH": {
             "caption": "Remove Download",
             "default_val": false,
-            "doc": "Hides the download button. Note: this hides UI only, it does not protect the file itself.",
+            "doc": "Esconde o botão de download",
             "editor": "DynamicValue",
             "name": "remove_download",
             "options": "",
-            "rank": 6,
+            "rank": 18,
             "value": "boolean"
         },
         "AAI": {
             "caption": "Remove Print",
             "default_val": false,
+            "doc": "Esconde o botão de imprimir",
             "editor": "DynamicValue",
             "name": "remove_print",
-            "rank": 8,
+            "rank": 19,
             "value": "boolean"
         },
         "AAJ": {
             "caption": "Remove Search",
             "default_val": false,
+            "doc": "Esconde a caixa de busca",
             "editor": "DynamicValue",
             "name": "remove_search",
-            "rank": 9,
+            "rank": 20,
             "value": "boolean"
         },
         "AAK": {
             "caption": "Remove Left Toggle",
             "default_val": false,
-            "doc": "Hides the sidebar (thumbnails/bookmarks) toggle button.",
+            "doc": "Esconde o botão da barra lateral",
             "editor": "DynamicValue",
             "name": "remove_left_toggle",
-            "rank": 11,
+            "rank": 21,
             "value": "boolean"
         },
         "AAL": {
             "caption": "Remove Presentation Mode",
             "default_val": false,
+            "doc": "Esconde o botão de tela cheia",
             "editor": "DynamicValue",
             "name": "remove_presentation_mode",
-            "rank": 10,
+            "rank": 23,
             "value": "boolean"
         },
         "AAM": {
             "caption": "Remove Bookmark",
             "default_val": false,
-            "doc": "Hides the bookmarks (document outline) tab in the sidebar.",
+            "doc": "Esconde a aba de marcadores (outline)",
             "editor": "DynamicValue",
             "name": "remove_bookmark",
-            "rank": 12,
+            "rank": 22,
             "value": "boolean"
         },
         "AAN": {
             "caption": "Remove Top Toolbar",
             "default_val": false,
+            "doc": "Esconde a toolbar inteira",
             "editor": "DynamicValue",
             "name": "remove_top_toolbar",
-            "rank": 13,
-            "value": "boolean"
-        },
-        "AAO": {
-            "caption": "Remove File Open",
-            "default_val": false,
-            "doc": "(Deprecated) The new viewer has no file-open button; kept for backward compatibility.",
-            "editor": "DynamicValue",
-            "name": "remove_file_open",
-            "options": "",
-            "rank": 14,
-            "value": "boolean"
-        },
-        "AAP": {
-            "caption": "Remove Right toggle",
-            "default_val": false,
-            "doc": "(Deprecated) The new viewer has no right panel; kept for backward compatibility.",
-            "editor": "DynamicValue",
-            "name": "remove_right_toggle",
-            "rank": 15,
+            "rank": 24,
             "value": "boolean"
         },
         "AAQ": {
@@ -119,13 +133,13 @@
             "default_val": 1,
             "editor": "DynamicValue",
             "name": "start_page",
-            "rank": 3,
+            "rank": 2,
             "value": "number"
         },
         "AAR": {
             "caption": "Viewer Language",
-            "default_val": "auto",
-            "doc": "UI language: auto (browser language), en, pt, fr, es or de.",
+            "default_val": "en-US",
+            "doc": "Viewer language are en-US,fr",
             "editor": "DynamicValue",
             "in_style": false,
             "name": "viewer_language",
@@ -137,400 +151,130 @@
         "AAS": {
             "caption": "Rename Download File",
             "default_val": "",
-            "doc": "If set, downloads use this file name (include the .pdf extension, e.g. document.pdf).",
+            "doc": "If you are renaming the downloading file then please include file extension (Example document.pdf)",
             "editor": "DynamicValue",
             "name": "rename_download_file",
             "optional": true,
-            "rank": 7,
+            "rank": 6,
             "value": "text"
         },
         "AAT": {
             "caption": "Search Word",
-            "doc": "Term searched (and highlighted) automatically after the PDF loads. Can be changed dynamically.",
+            "doc": "Busca e destaca automaticamente ao carregar; reage a mudanças dinâmicas",
             "editor": "DynamicValue",
             "long_text": true,
             "name": "search_word",
             "optional": true,
-            "rank": 16,
+            "rank": 5,
             "value": "text"
         },
         "AAU": {
             "caption": "App Name",
-            "doc": "(Optional) Your Bubble app name; used to normalize *.cdn.bubble.io file URLs.",
             "editor": "DynamicValue",
             "name": "app_name",
             "optional": true,
-            "rank": 0,
+            "rank": 7,
             "value": "text"
         },
         "AAV": {
             "caption": "Background Color",
-            "default_val": "rgba(42, 42, 46, 1)",
-            "doc": "Viewer background color.",
+            "default_val": "rgba(42,42,46,1)",
+            "doc": "Fundo do viewer",
             "editor": "Color",
             "in_style": false,
             "name": "background_color",
-            "rank": 17
+            "rank": 10
         },
         "AAW": {
             "caption": "Text Color",
-            "default_val": "rgba(245, 245, 245, 1)",
-            "doc": "Toolbar/UI text color.",
+            "default_val": "rgba(245,245,245,1)",
+            "doc": "Texto da toolbar/UI",
             "editor": "Color",
             "name": "text_color",
-            "rank": 18
+            "rank": 11
         },
-        "ABA": {
-            "caption": "Show Thumbnails Panel",
-            "default_val": false,
-            "doc": "Opens the thumbnails sidebar when the viewer loads.",
-            "editor": "DynamicValue",
-            "name": "show_thumbnails",
-            "rank": 19,
-            "value": "boolean"
-        },
-        "ABB": {
-            "caption": "Protected Mode",
-            "default_val": false,
-            "doc": "Hides download/print, disables right-click, text selection and Ctrl/Cmd+S/P/C inside the viewer. Note: no client-side protection is absolute.",
-            "editor": "DynamicValue",
-            "name": "protected_mode",
-            "rank": 20,
-            "value": "boolean"
-        },
-        "ABC": {
-            "caption": "Watermark Text",
-            "doc": "Dynamic diagonal watermark repeated over the pages (e.g. Current User's email). Leave empty for none.",
-            "editor": "DynamicValue",
-            "name": "watermark_text",
-            "optional": true,
-            "rank": 21,
-            "value": "text"
-        },
-        "ABD": {
-            "caption": "Watermark Opacity",
-            "default_val": 0.14,
-            "doc": "Watermark opacity between 0 and 1.",
-            "editor": "DynamicValue",
-            "name": "watermark_opacity",
-            "optional": true,
-            "rank": 22,
-            "value": "number"
-        },
-        "ABE": {
-            "caption": "Theme",
-            "default_val": "dark",
-            "doc": "Base color theme of the viewer chrome. Custom colors below override it.",
-            "editor": "Dropdown",
-            "name": "theme",
-            "options": "dark,light",
-            "rank": 23
-        },
-        "ABF": {
-            "caption": "Accent Color",
-            "default_val": "rgba(59, 130, 246, 1)",
-            "doc": "Color used for active controls and search highlights.",
-            "editor": "Color",
-            "name": "accent_color",
-            "rank": 24
-        },
-        "ABG": {
+        "AAy": {
             "caption": "Initial Zoom",
             "default_val": "auto",
-            "doc": "Zoom applied when the document loads. 'auto' fits the page width.",
             "editor": "Dropdown",
             "name": "initial_zoom",
             "options": "auto,page-width,page-fit,50,75,100,125,150,200",
+            "rank": 3
+        },
+        "AAz": {
+            "caption": "Conteúdo e comportamento",
+            "editor": "Label",
+            "name": "Conteúdo e comportamento",
+            "rank": 0
+        },
+        "ABA": {
+            "caption": "Aparência",
+            "editor": "Label",
+            "name": "Aparência",
+            "rank": 8
+        },
+        "ABB": {
+            "caption": "Theme",
+            "default_val": "dark",
+            "doc": "dark ou light; as cores abaixo sobrepõem o tema",
+            "editor": "Dropdown",
+            "name": "theme",
+            "options": "dark,light",
+            "rank": 9
+        },
+        "ABC": {
+            "caption": "Accent Color",
+            "default_val": "rgba(59,130,246,1)",
+            "doc": "Controles ativos e destaque da busca",
+            "editor": "Color",
+            "name": "accent_color",
+            "rank": 12
+        },
+        "ABD": {
+            "caption": "Show Thumbnails Panel",
+            "default_val": true,
+            "doc": "Abre a barra de miniaturas ao carregar",
+            "editor": "Checkbox",
+            "name": "show_thumbnails",
+            "rank": 13
+        },
+        "ABE": {
+            "caption": "Watermark Text",
+            "doc": "Marca d'água diagonal repetida (ex.: e-mail do usuário atual) ",
+            "editor": "DynamicValue",
+            "name": "watermark_text",
+            "rank": 14,
+            "value": "text"
+        },
+        "ABF": {
+            "caption": "Watermark Opacity",
+            "default_val": 0.14,
+            "doc": "Opacidade da marca d'água (0 a 1)",
+            "editor": "DynamicValue",
+            "name": "watermark_opacity",
+            "optional": true,
+            "rank": 15,
+            "value": "number"
+        },
+        "ABG": {
+            "caption": "Proteção e visibilidade da UI",
+            "editor": "Label",
+            "name": "Proteção e visibilidade da UI",
+            "rank": 16
+        },
+        "ABH": {
+            "caption": "Protected Mode",
+            "default_val": false,
+            "doc": "Esconde download/print; bloqueia clique-direito, seleção de texto e Ctrl/Cmd+S/P/C",
+            "editor": "Checkbox",
+            "name": "protected_mode",
+            "rank": 17
+        },
+        "ABI": {
+            "caption": "Legadas",
+            "editor": "Label",
+            "name": "Legadas",
             "rank": 25
-        }
-    },
-    "actions": {
-        "ABU": {
-            "caption": "Go to page",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.goToPage(properties.page);\n}"
-            },
-            "fields": {
-                "ACP": {
-                    "caption": "Page number",
-                    "name": "page",
-                    "value": "number",
-                    "rank": 0,
-                    "editor": "DynamicValue"
-                }
-            }
-        },
-        "ABV": {
-            "caption": "Next page",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.nextPage();\n}"
-            }
-        },
-        "ABW": {
-            "caption": "Previous page",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.prevPage();\n}"
-            }
-        },
-        "ABX": {
-            "caption": "Zoom in",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.zoomIn();\n}"
-            }
-        },
-        "ABY": {
-            "caption": "Zoom out",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.zoomOut();\n}"
-            }
-        },
-        "ABZ": {
-            "caption": "Set zoom (%)",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.setZoom(properties.zoom_percent);\n}"
-            },
-            "fields": {
-                "ACQ": {
-                    "caption": "Zoom percent",
-                    "name": "zoom_percent",
-                    "value": "number",
-                    "rank": 0,
-                    "editor": "DynamicValue",
-                    "doc": "e.g. 100 for 100%"
-                }
-            }
-        },
-        "ACA": {
-            "caption": "Fit to page",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.fitPage();\n}"
-            }
-        },
-        "ACB": {
-            "caption": "Fit to width",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.fitWidth();\n}"
-            }
-        },
-        "ACC": {
-            "caption": "Search text",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.search(properties.term);\n}"
-            },
-            "fields": {
-                "ACR": {
-                    "caption": "Term",
-                    "name": "term",
-                    "value": "text",
-                    "rank": 0,
-                    "editor": "DynamicValue"
-                }
-            }
-        },
-        "ACD": {
-            "caption": "Clear search",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.clearSearch();\n}"
-            }
-        },
-        "ACE": {
-            "caption": "Next search result",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.nextMatch();\n}"
-            }
-        },
-        "ACF": {
-            "caption": "Previous search result",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.prevMatch();\n}"
-            }
-        },
-        "ACG": {
-            "caption": "Download PDF",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.download(properties.filename);\n}"
-            },
-            "fields": {
-                "ACS": {
-                    "caption": "File name",
-                    "name": "filename",
-                    "value": "text",
-                    "rank": 0,
-                    "editor": "DynamicValue",
-                    "optional": true,
-                    "doc": "Include the .pdf extension. Falls back to Rename Download File / original name."
-                }
-            }
-        },
-        "ACH": {
-            "caption": "Print PDF",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.print();\n}"
-            }
-        },
-        "ACI": {
-            "caption": "Rotate",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.rotate(properties.direction);\n}"
-            },
-            "fields": {
-                "ACT": {
-                    "caption": "Direction",
-                    "name": "direction",
-                    "rank": 0,
-                    "editor": "Dropdown",
-                    "options": "clockwise,counterclockwise",
-                    "default_val": "clockwise"
-                }
-            }
-        },
-        "ACJ": {
-            "caption": "Toggle thumbnails panel",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.toggleSidebar();\n}"
-            }
-        },
-        "ACK": {
-            "caption": "Presentation mode (fullscreen)",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.fullscreen();\n}"
-            }
-        },
-        "ACL": {
-            "caption": "Extract pages & download",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.extractPages(properties.pages_range, properties.filename);\n}"
-            },
-            "fields": {
-                "ACU": {
-                    "caption": "Pages (e.g. 1-3,5)",
-                    "name": "pages_range",
-                    "value": "text",
-                    "rank": 0,
-                    "editor": "DynamicValue"
-                },
-                "ACV": {
-                    "caption": "File name",
-                    "name": "filename",
-                    "value": "text",
-                    "rank": 1,
-                    "editor": "DynamicValue",
-                    "optional": true
-                }
-            }
-        },
-        "ACM": {
-            "caption": "Merge PDFs & download",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.mergePdfs(properties.pdf_urls, properties.filename);\n}"
-            },
-            "fields": {
-                "ACW": {
-                    "caption": "PDF URLs (comma or line separated)",
-                    "name": "pdf_urls",
-                    "value": "text",
-                    "rank": 0,
-                    "editor": "DynamicValue",
-                    "long_text": true
-                },
-                "ACX": {
-                    "caption": "File name",
-                    "name": "filename",
-                    "value": "text",
-                    "rank": 1,
-                    "editor": "DynamicValue",
-                    "optional": true
-                }
-            }
-        },
-        "ACN": {
-            "caption": "Fill PDF form & download",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.fillForm(properties.form_data, properties.filename, properties.flatten);\n}"
-            },
-            "fields": {
-                "ACY": {
-                    "caption": "Form data (JSON)",
-                    "name": "form_data",
-                    "value": "text",
-                    "rank": 0,
-                    "editor": "DynamicValue",
-                    "long_text": true,
-                    "doc": "JSON object mapping field names to values, e.g. {\"name\":\"Ana\",\"accept\":true}"
-                },
-                "ACZ": {
-                    "caption": "File name",
-                    "name": "filename",
-                    "value": "text",
-                    "rank": 1,
-                    "editor": "DynamicValue",
-                    "optional": true
-                },
-                "ADA": {
-                    "caption": "Flatten (make read-only)",
-                    "name": "flatten",
-                    "value": "boolean",
-                    "rank": 2,
-                    "editor": "DynamicValue",
-                    "default_val": false
-                }
-            }
-        },
-        "ACO": {
-            "caption": "Stamp image on page & download",
-            "code": {
-                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.stampImage(properties.image_url, properties.page, properties.x_percent, properties.y_percent, properties.width_percent, properties.filename);\n}"
-            },
-            "fields": {
-                "ADB": {
-                    "caption": "Image URL (PNG/JPG)",
-                    "name": "image_url",
-                    "value": "text",
-                    "rank": 0,
-                    "editor": "DynamicValue",
-                    "doc": "e.g. a signature image"
-                },
-                "ADC": {
-                    "caption": "Page number",
-                    "name": "page",
-                    "value": "number",
-                    "rank": 1,
-                    "editor": "DynamicValue",
-                    "default_val": 1
-                },
-                "ADD": {
-                    "caption": "X position (% from left)",
-                    "name": "x_percent",
-                    "value": "number",
-                    "rank": 2,
-                    "editor": "DynamicValue",
-                    "default_val": 60
-                },
-                "ADE": {
-                    "caption": "Y position (% from top)",
-                    "name": "y_percent",
-                    "value": "number",
-                    "rank": 3,
-                    "editor": "DynamicValue",
-                    "default_val": 80
-                },
-                "ADF": {
-                    "caption": "Width (% of page width)",
-                    "name": "width_percent",
-                    "value": "number",
-                    "rank": 4,
-                    "editor": "DynamicValue",
-                    "default_val": 20
-                },
-                "ADG": {
-                    "caption": "File name",
-                    "name": "filename",
-                    "value": "text",
-                    "rank": 5,
-                    "editor": "DynamicValue",
-                    "optional": true
-                }
-            }
         }
     },
     "has_reset_fn": true,
@@ -543,7 +287,7 @@
     "states": {
         "AAX": {
             "caption": "Is Valid PDF?",
-            "doc": "true when the current URL was loaded as a valid PDF",
+            "doc": "It returns valid pdf or not",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
@@ -552,101 +296,75 @@
         },
         "AAY": {
             "caption": "Total Pdf Pages",
-            "doc": "Number of pages of the loaded PDF",
+            "doc": "It return number of pdf pages",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
             "name": "total_pages",
             "value": "number"
         },
-        "ABH": {
+        "ABJ": {
             "caption": "Current Page",
-            "doc": "Page currently visible in the viewer",
+            "doc": "Página visível agora (atualiza ao rolar/navegar)",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
             "name": "current_page",
             "value": "number"
         },
-        "ABI": {
+        "ABK": {
             "caption": "Zoom Level (%)",
-            "doc": "Current zoom level in percent",
+            "doc": "Zoom atual em % (ex.: 142)",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
             "name": "zoom_level",
             "value": "number"
         },
-        "ABJ": {
+        "ABL": {
             "caption": "Is Loading?",
-            "doc": "true while the PDF is being downloaded and prepared",
+            "doc": "true durante download/preparação do PDF",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
             "name": "is_loading",
             "value": "boolean"
         },
-        "ABK": {
+        "ABM": {
             "caption": "Search Results Count",
-            "doc": "Number of matches of the last search",
+            "doc": "Nº de ocorrências da última busca",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
             "name": "search_results_count",
             "value": "number"
         },
-        "ABL": {
+        "ABN": {
             "caption": "PDF Title",
-            "doc": "Title from the PDF metadata (may be empty)",
+            "doc": "Título dos metadados (pode ser vazio)",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
             "name": "pdf_title",
             "value": "text"
         },
-        "ABM": {
+        "ABO": {
             "caption": "PDF Author",
-            "doc": "Author from the PDF metadata (may be empty)",
+            "doc": "Autor dos metadados (pode ser vazio)",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
             "name": "pdf_author",
             "value": "text"
         },
-        "ABN": {
+        "ABP": {
             "caption": "Error Message",
-            "doc": "Technical message of the last load/tool error (empty when none)",
+            "doc": "Mensagem técnica do último erro (vazio quando ok)",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
             "name": "error_message",
             "value": "text"
-        }
-    },
-    "events": {
-        "ABO": {
-            "caption": "PDF is loaded",
-            "name": "pdf_loaded"
-        },
-        "ABP": {
-            "caption": "PDF failed to load",
-            "name": "pdf_error"
-        },
-        "ABQ": {
-            "caption": "Page changed",
-            "name": "page_changed"
-        },
-        "ABR": {
-            "caption": "Search completed",
-            "name": "search_completed"
-        },
-        "ABS": {
-            "caption": "Download started",
-            "name": "download_started"
-        },
-        "ABT": {
-            "caption": "Print started",
-            "name": "print_started"
         }
     }
 }

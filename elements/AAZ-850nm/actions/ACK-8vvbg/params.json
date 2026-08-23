@@ -1,7 +1,0 @@
-{
-    "caption": "Presentation mode (fullscreen)",
-    "fields": {},
-    "code": {
-        "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.fullscreen();\n}"
-    }
-}
