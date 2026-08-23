@@ -1,6 +1,5 @@
 {
     "caption": "Set zoom (%)",
-    "name": "set_zoom",
     "fields": {
         "ACQ": {
             "caption": "Zoom percent",

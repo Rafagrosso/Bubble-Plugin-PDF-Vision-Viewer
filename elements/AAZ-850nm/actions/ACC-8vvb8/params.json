@@ -1,6 +1,5 @@
 {
     "caption": "Search text",
-    "name": "search_text",
     "fields": {
         "ACR": {
             "caption": "Term",

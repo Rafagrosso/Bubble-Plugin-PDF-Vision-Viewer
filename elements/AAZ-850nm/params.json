@@ -244,6 +244,295 @@
             "rank": 25
         }
     },
+    "actions": {
+        "ABU": {
+            "caption": "Go to page",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.goToPage(properties.page);\n}"
+            },
+            "fields": {
+                "ACP": {
+                    "caption": "Page number",
+                    "name": "page",
+                    "value": "number",
+                    "rank": 0,
+                    "editor": "DynamicValue"
+                }
+            }
+        },
+        "ABV": {
+            "caption": "Next page",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.nextPage();\n}"
+            }
+        },
+        "ABW": {
+            "caption": "Previous page",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.prevPage();\n}"
+            }
+        },
+        "ABX": {
+            "caption": "Zoom in",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.zoomIn();\n}"
+            }
+        },
+        "ABY": {
+            "caption": "Zoom out",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.zoomOut();\n}"
+            }
+        },
+        "ABZ": {
+            "caption": "Set zoom (%)",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.setZoom(properties.zoom_percent);\n}"
+            },
+            "fields": {
+                "ACQ": {
+                    "caption": "Zoom percent",
+                    "name": "zoom_percent",
+                    "value": "number",
+                    "rank": 0,
+                    "editor": "DynamicValue",
+                    "doc": "e.g. 100 for 100%"
+                }
+            }
+        },
+        "ACA": {
+            "caption": "Fit to page",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.fitPage();\n}"
+            }
+        },
+        "ACB": {
+            "caption": "Fit to width",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.fitWidth();\n}"
+            }
+        },
+        "ACC": {
+            "caption": "Search text",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.search(properties.term);\n}"
+            },
+            "fields": {
+                "ACR": {
+                    "caption": "Term",
+                    "name": "term",
+                    "value": "text",
+                    "rank": 0,
+                    "editor": "DynamicValue"
+                }
+            }
+        },
+        "ACD": {
+            "caption": "Clear search",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.clearSearch();\n}"
+            }
+        },
+        "ACE": {
+            "caption": "Next search result",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.nextMatch();\n}"
+            }
+        },
+        "ACF": {
+            "caption": "Previous search result",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.prevMatch();\n}"
+            }
+        },
+        "ACG": {
+            "caption": "Download PDF",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.download(properties.filename);\n}"
+            },
+            "fields": {
+                "ACS": {
+                    "caption": "File name",
+                    "name": "filename",
+                    "value": "text",
+                    "rank": 0,
+                    "editor": "DynamicValue",
+                    "optional": true,
+                    "doc": "Include the .pdf extension. Falls back to Rename Download File / original name."
+                }
+            }
+        },
+        "ACH": {
+            "caption": "Print PDF",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.print();\n}"
+            }
+        },
+        "ACI": {
+            "caption": "Rotate",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.rotate(properties.direction);\n}"
+            },
+            "fields": {
+                "ACT": {
+                    "caption": "Direction",
+                    "name": "direction",
+                    "rank": 0,
+                    "editor": "Dropdown",
+                    "options": "clockwise,counterclockwise",
+                    "default_val": "clockwise"
+                }
+            }
+        },
+        "ACJ": {
+            "caption": "Toggle thumbnails panel",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.toggleSidebar();\n}"
+            }
+        },
+        "ACK": {
+            "caption": "Presentation mode (fullscreen)",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.fullscreen();\n}"
+            }
+        },
+        "ACL": {
+            "caption": "Extract pages & download",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.extractPages(properties.pages_range, properties.filename);\n}"
+            },
+            "fields": {
+                "ACU": {
+                    "caption": "Pages (e.g. 1-3,5)",
+                    "name": "pages_range",
+                    "value": "text",
+                    "rank": 0,
+                    "editor": "DynamicValue"
+                },
+                "ACV": {
+                    "caption": "File name",
+                    "name": "filename",
+                    "value": "text",
+                    "rank": 1,
+                    "editor": "DynamicValue",
+                    "optional": true
+                }
+            }
+        },
+        "ACM": {
+            "caption": "Merge PDFs & download",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.mergePdfs(properties.pdf_urls, properties.filename);\n}"
+            },
+            "fields": {
+                "ACW": {
+                    "caption": "PDF URLs (comma or line separated)",
+                    "name": "pdf_urls",
+                    "value": "text",
+                    "rank": 0,
+                    "editor": "DynamicValue",
+                    "long_text": true
+                },
+                "ACX": {
+                    "caption": "File name",
+                    "name": "filename",
+                    "value": "text",
+                    "rank": 1,
+                    "editor": "DynamicValue",
+                    "optional": true
+                }
+            }
+        },
+        "ACN": {
+            "caption": "Fill PDF form & download",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.fillForm(properties.form_data, properties.filename, properties.flatten);\n}"
+            },
+            "fields": {
+                "ACY": {
+                    "caption": "Form data (JSON)",
+                    "name": "form_data",
+                    "value": "text",
+                    "rank": 0,
+                    "editor": "DynamicValue",
+                    "long_text": true,
+                    "doc": "JSON object mapping field names to values, e.g. {\"name\":\"Ana\",\"accept\":true}"
+                },
+                "ACZ": {
+                    "caption": "File name",
+                    "name": "filename",
+                    "value": "text",
+                    "rank": 1,
+                    "editor": "DynamicValue",
+                    "optional": true
+                },
+                "ADA": {
+                    "caption": "Flatten (make read-only)",
+                    "name": "flatten",
+                    "value": "boolean",
+                    "rank": 2,
+                    "editor": "DynamicValue",
+                    "default_val": false
+                }
+            }
+        },
+        "ACO": {
+            "caption": "Stamp image on page & download",
+            "code": {
+                "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.stampImage(properties.image_url, properties.page, properties.x_percent, properties.y_percent, properties.width_percent, properties.filename);\n}"
+            },
+            "fields": {
+                "ADB": {
+                    "caption": "Image URL (PNG/JPG)",
+                    "name": "image_url",
+                    "value": "text",
+                    "rank": 0,
+                    "editor": "DynamicValue",
+                    "doc": "e.g. a signature image"
+                },
+                "ADC": {
+                    "caption": "Page number",
+                    "name": "page",
+                    "value": "number",
+                    "rank": 1,
+                    "editor": "DynamicValue",
+                    "default_val": 1
+                },
+                "ADD": {
+                    "caption": "X position (% from left)",
+                    "name": "x_percent",
+                    "value": "number",
+                    "rank": 2,
+                    "editor": "DynamicValue",
+                    "default_val": 60
+                },
+                "ADE": {
+                    "caption": "Y position (% from top)",
+                    "name": "y_percent",
+                    "value": "number",
+                    "rank": 3,
+                    "editor": "DynamicValue",
+                    "default_val": 80
+                },
+                "ADF": {
+                    "caption": "Width (% of page width)",
+                    "name": "width_percent",
+                    "value": "number",
+                    "rank": 4,
+                    "editor": "DynamicValue",
+                    "default_val": 20
+                },
+                "ADG": {
+                    "caption": "File name",
+                    "name": "filename",
+                    "value": "text",
+                    "rank": 5,
+                    "editor": "DynamicValue",
+                    "optional": true
+                }
+            }
+        }
+    },
     "has_reset_fn": true,
     "icon": "ion-eye",
     "property_applications": {
@@ -337,32 +626,26 @@
     "events": {
         "ABO": {
             "caption": "PDF is loaded",
-            "doc": "Triggered when the PDF finished loading and rendering started",
             "name": "pdf_loaded"
         },
         "ABP": {
             "caption": "PDF failed to load",
-            "doc": "Triggered when the URL could not be loaded as a PDF (see Error Message state)",
             "name": "pdf_error"
         },
         "ABQ": {
             "caption": "Page changed",
-            "doc": "Triggered whenever the visible page changes (scroll or navigation)",
             "name": "page_changed"
         },
         "ABR": {
             "caption": "Search completed",
-            "doc": "Triggered when a search finishes (see Search Results Count state)",
             "name": "search_completed"
         },
         "ABS": {
             "caption": "Download started",
-            "doc": "Triggered when a download is started (button or action)",
             "name": "download_started"
         },
         "ABT": {
             "caption": "Print started",
-            "doc": "Triggered when printing is started (button or action)",
             "name": "print_started"
         }
     }

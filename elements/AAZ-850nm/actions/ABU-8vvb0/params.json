@@ -1,6 +1,5 @@
 {
     "caption": "Go to page",
-    "name": "go_to_page",
     "fields": {
         "ACP": {
             "caption": "Page number",

@@ -1,6 +1,5 @@
 {
     "caption": "Extract pages & download",
-    "name": "extract_pages",
     "fields": {
         "ACU": {
             "caption": "Pages (e.g. 1-3,5)",

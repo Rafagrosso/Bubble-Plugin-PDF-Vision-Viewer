@@ -1,6 +1,5 @@
 {
     "caption": "Rotate",
-    "name": "rotate",
     "fields": {
         "ACT": {
             "caption": "Direction",

@@ -1,6 +1,5 @@
 {
     "caption": "Previous search result",
-    "name": "previous_search_result",
     "fields": {},
     "code": {
         "fn": "function(instance, properties, context) {\n    var pv = instance.data && instance.data.pv;\n    if (!pv) return;\n    pv.prevMatch();\n}"

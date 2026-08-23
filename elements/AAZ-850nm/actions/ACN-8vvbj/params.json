@@ -1,6 +1,5 @@
 {
     "caption": "Fill PDF form & download",
-    "name": "fill_form",
     "fields": {
         "ACY": {
             "caption": "Form data (JSON)",

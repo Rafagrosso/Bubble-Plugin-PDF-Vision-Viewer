@@ -1,6 +1,5 @@
 {
     "caption": "Merge PDFs & download",
-    "name": "merge_pdfs",
     "fields": {
         "ACW": {
             "caption": "PDF URLs (comma or line separated)",

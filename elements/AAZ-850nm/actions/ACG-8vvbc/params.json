@@ -1,6 +1,5 @@
 {
     "caption": "Download PDF",
-    "name": "download_pdf",
     "fields": {
         "ACS": {
             "caption": "File name",

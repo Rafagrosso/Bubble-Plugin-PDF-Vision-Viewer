@@ -1,6 +1,5 @@
 {
     "caption": "Stamp image on page & download",
-    "name": "stamp_image",
     "fields": {
         "ADB": {
             "caption": "Image URL (PNG/JPG)",
