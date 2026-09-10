@@ -1,14 +1,14 @@
 {
     "categories": {
-        "0": "image",
-        "1": "productivity"
+        "0": "productivity",
+        "1": "PDF"
     },
     "data_tracked": false,
-    "demo_page": "https://pdf-view-93394.bubbleapps.io/version-test",
+    "demo_page": "",
     "description": "An elegant and flexible document viewer for Bubble. View PDF, Word (.doc/.docx) and Excel (.xlsx/.xls/.csv) files with custom UI options, zoom presets, search, watermarking, protected mode and multi-language display — all inside your application.",
     "image": "//meta-q.cdn.bubble.io/f1789067978616x200805438190265540/9e25fcd8-958b-4b6a-95b3-4932cfc3f6f4.png",
     "license": "open_source",
-    "link": "https://pdf-view-93394.bubbleapps.io/version-test",
+    "link": "",
     "name": "Document Vision Viewer",
     "platforms_new": "web",
     "plugin_instructions": "An elegant and flexible document viewer for Bubble with three self-contained elements: 'Pdf View' (PDF, via PDF.js/pdf-lib), 'Doc View' (Word .doc/.docx, via docx-preview) and 'Excel View' (spreadsheets .xlsx/.xls/.csv, via SheetJS). Every element shares the same set of properties — content & behavior, appearance (theme/colors/watermark), and UI protection/visibility toggles — so you can drop in whichever viewer matches your file type and configure it the same way: zoom presets, reactive search with highlighting, dark/light theme with custom colors, a dynamic watermark overlay, protected mode (hides download/print and blocks copy shortcuts), and toggles to hide individual toolbar pieces."

@@ -1,6 +1,9 @@
 {
+    "add_hover_pressed": true,
     "add_is_visible": true,
     "add_large_file_upload_properties": false,
+    "can_fit_height": true,
+    "can_fit_width": true,
     "category": "visual elements",
     "default_dim": {
         "height": 400,
@@ -269,10 +272,14 @@
         }
     },
     "has_reset_fn": true,
-    "icon": "ion-document-text",
+    "icon": "ion-document",
     "property_applications": {
+        "Background": true,
+        "Border": true,
         "BoxShadow": true,
+        "Font": true,
         "MinWidth": true,
+        "Padding": true,
         "resizable": true
     },
     "states": {
@@ -280,7 +287,7 @@
             "caption": "Is Valid Document?",
             "doc": "It returns valid document or not",
             "initialization_code": {
-                "fn": "function(properties, context) {\n\n\n\n}"
+                "fn": "function(properties, context) {\n\n\n\n}\n"
             },
             "name": "is_valid_document",
             "value": "boolean"
@@ -289,7 +296,7 @@
             "caption": "Total Document Pages",
             "doc": "It return number of document pages",
             "initialization_code": {
-                "fn": "function(properties, context) {\n\n\n\n}"
+                "fn": "function(properties, context) {\n\n\n\n}\n"
             },
             "name": "total_pages",
             "value": "number"
@@ -298,7 +305,7 @@
             "caption": "Current Page",
             "doc": "Página visível agora (atualiza ao rolar/navegar)",
             "initialization_code": {
-                "fn": "function(properties, context) {\n\n\n\n}"
+                "fn": "function(properties, context) {\n\n\n\n}\n"
             },
             "name": "current_page",
             "value": "number"
@@ -307,7 +314,7 @@
             "caption": "Zoom Level (%)",
             "doc": "Zoom atual em % (ex.: 142)",
             "initialization_code": {
-                "fn": "function(properties, context) {\n\n\n\n}"
+                "fn": "function(properties, context) {\n\n\n\n}\n"
             },
             "name": "zoom_level",
             "value": "number"
@@ -316,7 +323,7 @@
             "caption": "Is Loading?",
             "doc": "true durante download/preparação do documento",
             "initialization_code": {
-                "fn": "function(properties, context) {\n\n\n\n}"
+                "fn": "function(properties, context) {\n\n\n\n}\n"
             },
             "name": "is_loading",
             "value": "boolean"
@@ -325,7 +332,7 @@
             "caption": "Search Results Count",
             "doc": "Nº de ocorrências da última busca",
             "initialization_code": {
-                "fn": "function(properties, context) {\n\n\n\n}"
+                "fn": "function(properties, context) {\n\n\n\n}\n"
             },
             "name": "search_results_count",
             "value": "number"
@@ -334,7 +341,7 @@
             "caption": "Document Title",
             "doc": "Título dos metadados (pode ser vazio)",
             "initialization_code": {
-                "fn": "function(properties, context) {\n\n\n\n}"
+                "fn": "function(properties, context) {\n\n\n\n}\n"
             },
             "name": "document_title",
             "value": "text"
@@ -343,7 +350,7 @@
             "caption": "Document Author",
             "doc": "Autor dos metadados (pode ser vazio)",
             "initialization_code": {
-                "fn": "function(properties, context) {\n\n\n\n}"
+                "fn": "function(properties, context) {\n\n\n\n}\n"
             },
             "name": "document_author",
             "value": "text"
@@ -352,7 +359,7 @@
             "caption": "Error Message",
             "doc": "Mensagem técnica do último erro (vazio quando ok)",
             "initialization_code": {
-                "fn": "function(properties, context) {\n\n\n\n}"
+                "fn": "function(properties, context) {\n\n\n\n}\n"
             },
             "name": "error_message",
             "value": "text"
