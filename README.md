@@ -1,8 +1,12 @@
-# PDF Vision Viewer — Bubble Plugin
+# Document Vision Viewer — Bubble Plugin
 
-This is a repository based on the [Bubble](https://bubble.io) plugin 'PDF Vision Viewer'. This lets you use Github's functionality in terms of version control, forks and pull requests. Note that the plugin code is stored on Bubble's servers, and you need to synchronize your repository in the Bubble Plugin Editor.
+This is a repository based on the [Bubble](https://bubble.io) plugin 'Document Vision Viewer' (formerly 'PDF Vision Viewer'). This lets you use Github's functionality in terms of version control, forks and pull requests. Note that the plugin code is stored on Bubble's servers, and you need to synchronize your repository in the Bubble Plugin Editor.
 
-An elegant and flexible PDF viewer for Bubble, built on [PDF.js](https://mozilla.github.io/pdf.js/) (rendering) and [pdf-lib](https://pdf-lib.js.org/) (PDF tools). The viewer is fully self-contained — no external `viewer.html` dependency — and the PDF is downloaded only once per URL.
+An elegant and flexible document viewer suite for Bubble with three self-contained elements — **Pdf View**, **Doc View** and **Excel View** — sharing the same property layout (content & behavior, appearance, protection & UI panels) so any of the three can be dropped in and configured the same way, whatever the file type.
+
+## Pdf View — PDF viewer element
+
+Built on [PDF.js](https://mozilla.github.io/pdf.js/) (rendering) and [pdf-lib](https://pdf-lib.js.org/) (PDF tools). The viewer is fully self-contained — no external `viewer.html` dependency — and the PDF is downloaded only once per URL.
 
 ## Features
 
@@ -71,3 +75,22 @@ A second, self-contained element (`Doc View`) mirrors "Pdf View" property-for-pr
 Exposed states: `Is Valid Document?`, `Total Document Pages`, `Current Page`, `Zoom Level (%)`, `Is Loading?`, `Search Results Count`, `Document Title`, `Document Author`, `Error Message`. Events: `Document is loaded`, `Document failed to load`, `Page changed`, `Search completed`, `Download started`, `Print started`.
 
 Dependencies are loaded from jsDelivr: `jszip@3.10.1` and `docx-preview@0.3.6`.
+
+## Excel View — XLSX/XLS/CSV viewer element
+
+A third element (`Excel View`) mirrors "Pdf View" and "Doc View" property-for-property, but renders spreadsheets. Each sheet in the workbook is treated as a "page": the sidebar lists sheet tabs, and `Go to page` / `Next page` / `Previous page` switch between them.
+
+- `.xlsx`, `.xls` and `.csv` are parsed and rendered fully client-side with [SheetJS](https://sheetjs.com/) (`xlsx` library) — each sheet becomes an HTML table, with workbook title/author read from the file's own metadata where present.
+- Same toolbar (search & highlight over the visible sheet, sheet-list/sidebar toggle, presentation mode, print, download), same theme/watermark/protected-mode properties as the other two elements.
+
+| Property | Type | Description |
+|---|---|---|
+| Spreadsheet Url | file/text | `.xlsx`, `.xls` or `.csv` file to render |
+| Starting Sheet Number | number | Sheet shown after load |
+| Viewer Language, Initial Zoom, Search Word, Rename Download File, App Name | — | Same as Pdf View |
+| Theme / Background / Text / Accent Color, Watermark Text / Opacity | — | Same as Pdf View |
+| Protected Mode, Show Thumbnails Panel, Remove Download/Print/Search/Left Toggle/Bookmark/Presentation Mode/Top Toolbar | checkbox | Same as Pdf View |
+
+Exposed states: `Is Valid Spreadsheet?`, `Total Sheets`, `Current Page`, `Zoom Level (%)`, `Is Loading?`, `Search Results Count`, `Spreadsheet Title`, `Spreadsheet Author`, `Error Message`. Events: `Spreadsheet is loaded`, `Spreadsheet failed to load`, `Page changed`, `Search completed`, `Download started`, `Print started`.
+
+Dependencies are loaded from jsDelivr: `xlsx@0.18.5` (SheetJS).

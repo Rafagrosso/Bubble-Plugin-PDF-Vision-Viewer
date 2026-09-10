@@ -1,0 +1,361 @@
+{
+    "add_is_visible": true,
+    "add_large_file_upload_properties": false,
+    "category": "visual elements",
+    "default_dim": {
+        "height": 400,
+        "width": 600
+    },
+    "display": "Excel View",
+    "events": {
+        "ADN": {
+            "caption": "Spreadsheet is loaded",
+            "doc": "O documento terminou de carregar",
+            "name": "spreadsheet_loaded"
+        },
+        "ADO": {
+            "caption": "Spreadsheet failed to load",
+            "doc": "A URL não pôde ser carregada (consulte Error Message)",
+            "name": "spreadsheet_error"
+        },
+        "ADP": {
+            "caption": "Page changed",
+            "doc": "A planilha (aba) visível mudou",
+            "name": "page_changed"
+        },
+        "ADQ": {
+            "caption": "Search completed",
+            "doc": "Uma busca terminou (consulte Search Results Count)",
+            "name": "search_completed"
+        },
+        "ADR": {
+            "caption": "Download started",
+            "doc": "Download iniciado (botão da toolbar ou qualquer ação que baixa arquivo)",
+            "name": "download_started"
+        },
+        "ADS": {
+            "caption": "Print started",
+            "doc": "Impressão iniciada (botão ou ação)",
+            "name": "print_started"
+        }
+    },
+    "fields": {
+        "AAA": {
+            "caption": "Conteúdo e comportamento",
+            "editor": "Label",
+            "name": "Conteúdo e comportamento",
+            "rank": 0
+        },
+        "AAB": {
+            "caption": "Spreadsheet Url",
+            "default_val": "",
+            "doc": "Escolha a URL do arquivo .xlsx, .xls ou .csv a renderizar & deve incluir https:// ou http://",
+            "editor": "DynamicValue",
+            "name": "spreadsheet_url",
+            "rank": 1,
+            "value": "file"
+        },
+        "AAC": {
+            "caption": "Starting Sheet Number",
+            "default_val": 1,
+            "editor": "DynamicValue",
+            "name": "start_page",
+            "rank": 2,
+            "value": "number"
+        },
+        "AAD": {
+            "caption": "Initial Zoom",
+            "default_val": "auto",
+            "editor": "Dropdown",
+            "name": "initial_zoom",
+            "options": "auto,page-width,page-fit,50,75,100,125,150,200",
+            "rank": 3
+        },
+        "AAE": {
+            "caption": "Viewer Language",
+            "default_val": "en-US",
+            "doc": "Viewer language are en-US,fr",
+            "editor": "DynamicValue",
+            "in_style": false,
+            "name": "viewer_language",
+            "optional": true,
+            "options": "",
+            "rank": 4,
+            "value": "text"
+        },
+        "AAF": {
+            "caption": "Search Word",
+            "doc": "Busca e destaca automaticamente ao carregar; reage a mudanças dinâmicas",
+            "editor": "DynamicValue",
+            "long_text": true,
+            "name": "search_word",
+            "optional": true,
+            "rank": 5,
+            "value": "text"
+        },
+        "AAG": {
+            "caption": "Rename Download File",
+            "default_val": "",
+            "doc": "Se for renomear o arquivo baixado, inclua a extensão (Exemplo: planilha.xlsx)",
+            "editor": "DynamicValue",
+            "name": "rename_download_file",
+            "optional": true,
+            "rank": 6,
+            "value": "text"
+        },
+        "AAH": {
+            "caption": "App Name",
+            "editor": "DynamicValue",
+            "name": "app_name",
+            "optional": true,
+            "rank": 7,
+            "value": "text"
+        },
+        "AAI": {
+            "caption": "Aparência",
+            "editor": "Label",
+            "name": "Aparência",
+            "rank": 8
+        },
+        "AAJ": {
+            "caption": "Theme",
+            "default_val": "dark",
+            "doc": "dark ou light; as cores abaixo sobrepõem o tema",
+            "editor": "Dropdown",
+            "name": "theme",
+            "options": "dark,light",
+            "rank": 9
+        },
+        "AAK": {
+            "caption": "Background Color",
+            "default_val": "rgba(42,42,46,1)",
+            "doc": "Fundo do viewer",
+            "editor": "Color",
+            "in_style": false,
+            "name": "background_color",
+            "rank": 10
+        },
+        "AAL": {
+            "caption": "Text Color",
+            "default_val": "rgba(245,245,245,1)",
+            "doc": "Texto da toolbar/UI",
+            "editor": "Color",
+            "name": "text_color",
+            "rank": 11
+        },
+        "AAM": {
+            "caption": "Accent Color",
+            "default_val": "rgba(59,130,246,1)",
+            "doc": "Controles ativos e destaque da busca",
+            "editor": "Color",
+            "name": "accent_color",
+            "rank": 12
+        },
+        "AAN": {
+            "caption": "Watermark Text",
+            "doc": "Marca d'água diagonal repetida (ex.: e-mail do usuário atual) ",
+            "editor": "DynamicValue",
+            "name": "watermark_text",
+            "rank": 13,
+            "value": "text"
+        },
+        "AAO": {
+            "caption": "Watermark Opacity",
+            "default_val": 0.14,
+            "doc": "Opacidade da marca d'água (0 a 1)",
+            "editor": "DynamicValue",
+            "name": "watermark_opacity",
+            "optional": true,
+            "rank": 14,
+            "value": "number"
+        },
+        "AAP": {
+            "caption": "Proteção e Painéis da UI",
+            "editor": "Label",
+            "name": "Proteção e Painéis da UI",
+            "rank": 15
+        },
+        "AAQ": {
+            "caption": "Protected Mode",
+            "default_val": false,
+            "doc": "Esconde download/print; bloqueia clique-direito, seleção de texto e Ctrl/Cmd+S/P/C",
+            "editor": "Checkbox",
+            "name": "protected_mode",
+            "rank": 16
+        },
+        "AAR": {
+            "caption": "Show Thumbnails Panel",
+            "default_val": true,
+            "doc": "Abre a barra de abas/planilhas ao carregar",
+            "editor": "Checkbox",
+            "name": "show_thumbnails",
+            "rank": 17
+        },
+        "AAS": {
+            "caption": "Remove Download",
+            "default_val": false,
+            "doc": "Esconde o botão de download",
+            "editor": "Checkbox",
+            "name": "remove_download",
+            "rank": 18
+        },
+        "AAT": {
+            "caption": "Remove Print",
+            "default_val": false,
+            "doc": "Esconde o botão de imprimir",
+            "editor": "Checkbox",
+            "name": "remove_print",
+            "rank": 19
+        },
+        "AAU": {
+            "caption": "Remove Search",
+            "default_val": false,
+            "doc": "Esconde a caixa de busca",
+            "editor": "Checkbox",
+            "name": "remove_search",
+            "rank": 20
+        },
+        "AAV": {
+            "caption": "Remove Left Toggle",
+            "default_val": false,
+            "doc": "Esconde o botão da barra lateral",
+            "editor": "Checkbox",
+            "name": "remove_left_toggle",
+            "rank": 21
+        },
+        "AAW": {
+            "caption": "Remove Bookmark",
+            "default_val": false,
+            "doc": "Esconde a aba de marcadores (nomes das planilhas)",
+            "editor": "Checkbox",
+            "name": "remove_bookmark",
+            "rank": 22
+        },
+        "AAX": {
+            "caption": "Remove Presentation Mode",
+            "default_val": false,
+            "doc": "Esconde o botão de tela cheia",
+            "editor": "Checkbox",
+            "name": "remove_presentation_mode",
+            "rank": 23
+        },
+        "AAY": {
+            "caption": "Remove Top Toolbar",
+            "default_val": false,
+            "doc": "Esconde a toolbar inteira",
+            "editor": "Checkbox",
+            "name": "remove_top_toolbar",
+            "rank": 24
+        },
+        "AAZ": {
+            "caption": "Legadas",
+            "editor": "Label",
+            "name": "Legadas",
+            "rank": 25
+        },
+        "ABA": {
+            "caption": "excel viewer ID",
+            "editor": "DynamicValue",
+            "name": "excel_viewer_id",
+            "rank": 26,
+            "value": "text"
+        },
+        "ABB": {
+            "caption": "Page to Fit",
+            "default_val": false,
+            "editor": "Checkbox",
+            "name": "page_to_fit",
+            "rank": 27
+        }
+    },
+    "has_reset_fn": true,
+    "icon": "ion-grid",
+    "property_applications": {
+        "BoxShadow": true,
+        "MinWidth": true,
+        "resizable": true
+    },
+    "states": {
+        "ADE": {
+            "caption": "Is Valid Spreadsheet?",
+            "doc": "It returns valid spreadsheet or not",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "is_valid_spreadsheet",
+            "value": "boolean"
+        },
+        "ADF": {
+            "caption": "Total Sheets",
+            "doc": "It return number of sheets (abas) in the workbook",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "total_pages",
+            "value": "number"
+        },
+        "ADG": {
+            "caption": "Current Page",
+            "doc": "Aba/planilha visível agora (atualiza ao navegar)",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "current_page",
+            "value": "number"
+        },
+        "ADH": {
+            "caption": "Zoom Level (%)",
+            "doc": "Zoom atual em % (ex.: 142)",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "zoom_level",
+            "value": "number"
+        },
+        "ADI": {
+            "caption": "Is Loading?",
+            "doc": "true durante download/preparação da planilha",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "is_loading",
+            "value": "boolean"
+        },
+        "ADJ": {
+            "caption": "Search Results Count",
+            "doc": "Nº de ocorrências da última busca",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "search_results_count",
+            "value": "number"
+        },
+        "ADK": {
+            "caption": "Spreadsheet Title",
+            "doc": "Título dos metadados (pode ser vazio)",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "spreadsheet_title",
+            "value": "text"
+        },
+        "ADL": {
+            "caption": "Spreadsheet Author",
+            "doc": "Autor dos metadados (pode ser vazio)",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "spreadsheet_author",
+            "value": "text"
+        },
+        "ADM": {
+            "caption": "Error Message",
+            "doc": "Mensagem técnica do último erro (vazio quando ok)",
+            "initialization_code": {
+                "fn": "function(properties, context) {\n\n\n\n}"
+            },
+            "name": "error_message",
+            "value": "text"
+        }
+    }
+}

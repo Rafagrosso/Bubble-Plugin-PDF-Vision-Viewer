@@ -1,0 +1,13 @@
+{
+    "caption": "Go to page",
+    "fields": {
+        "ADT": {
+            "caption": "page (number)",
+            "doc": "",
+            "editor": "DynamicValue",
+            "name": "page",
+            "rank": 0,
+            "value": "number"
+        }
+    }
+}
