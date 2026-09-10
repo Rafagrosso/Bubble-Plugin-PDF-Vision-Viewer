@@ -159,6 +159,7 @@
             "doc": "Marca d'água diagonal repetida (ex.: e-mail do usuário atual) ",
             "editor": "DynamicValue",
             "name": "watermark_text",
+            "optional": true,
             "rank": 13,
             "value": "text"
         },
@@ -260,6 +261,7 @@
             "caption": "excel viewer ID",
             "editor": "DynamicValue",
             "name": "excel_viewer_id",
+            "optional": true,
             "rank": 26,
             "value": "text"
         },

@@ -1,12 +1,12 @@
 {
     "categories": {
         "0": "productivity",
-        "1": "PDF"
+        "1": "data (things)"
     },
     "data_tracked": false,
-    "demo_page": "",
-    "description": "An elegant and flexible document viewer for Bubble. View PDF, Word (.doc/.docx) and Excel (.xlsx/.xls/.csv) files with custom UI options, zoom presets, search, watermarking, protected mode and multi-language display — all inside your application.",
-    "image": "//meta-q.cdn.bubble.io/f1789067978616x200805438190265540/9e25fcd8-958b-4b6a-95b3-4932cfc3f6f4.png",
+    "demo_page": "https://pdf-view-93394.bubbleapps.io/version-test?debug_mode=true",
+    "description": "Um visualizador de documentos elegante e flexível para o Bubble. Veja arquivos PDF, Word (.doc/.docx) e Excel (.xlsx/.xls/.csv) com opções de UI personalizadas, presets de zoom, busca, marca d'água, modo protegido e exibição multi-idioma — tudo dentro da sua aplicação.",
+    "image": "//meta-q.cdn.bubble.io/f1789074060077x791389395991343900/9e25fcd8-958b-4b6a-95b3-4932cfc3f6f4.png",
     "license": "open_source",
     "link": "",
     "name": "PDF Vision Viewer",
