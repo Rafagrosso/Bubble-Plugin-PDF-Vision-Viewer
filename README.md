@@ -32,6 +32,8 @@ An elegant and flexible PDF viewer for Bubble, built on [PDF.js](https://mozilla
 | App Name | text | (Optional) normalizes `*.cdn.bubble.io` URLs |
 | pdf viewer ID, Page to Fit, Remove File Open, Remove Right toggle | — | Legacy, kept for backward compatibility |
 
+All yes/no properties (Show Thumbnails Panel, Protected Mode, Remove Download/Print/Search/Left Toggle/Bookmark/Presentation Mode/Top Toolbar, Page to Fit) use the native **Checkbox** editor in the Bubble property panel instead of a dynamic-expression field, and are grouped under labeled categories: *Conteúdo e comportamento*, *Aparência*, *Proteção e Painéis da UI* and *Legadas*.
+
 ## Exposed states (outputs)
 
 `Is Valid PDF?`, `Total Pdf Pages`, `Current Page`, `Zoom Level (%)`, `Is Loading?`, `Search Results Count`, `PDF Title`, `PDF Author`, `Error Message`
@@ -49,3 +51,23 @@ Go to page · Next/Previous page · Zoom in/out · Set zoom (%) · Fit to page �
 - The PDF's host must allow cross-origin requests (CORS). Bubble-hosted files work out of the box.
 - Hiding download/print (or Protected Mode) is UI-level only; anyone with the file URL can still fetch it. Use Bubble privacy rules for real protection.
 - Dependencies are loaded from jsDelivr: `pdfjs-dist@3.11.174` and `pdf-lib@1.17.1`.
+
+## Doc View — DOC/DOCX viewer element
+
+A second, self-contained element (`Doc View`) mirrors "Pdf View" property-for-property (same categories, same checkboxes, same colors/watermark/protection controls) but renders Word documents instead of PDFs.
+
+- `.docx` is rendered fully client-side with [docx-preview](https://github.com/VolodymyrBaydalka/docxpreview) (paginated, with headings extracted into the sidebar as an outline and page/document metadata read from `docProps/core.xml` via JSZip).
+- `.doc` (legacy binary format) has no reliable in-browser parser, so it falls back to the Microsoft Office Online viewer (`view.officeapps.live.com`) in an iframe — this requires the file URL to be publicly reachable over the internet (a Bubble-hosted file works; `localhost` does not).
+- Same toolbar (search & highlight, sidebar/outline toggle, presentation mode, print, download), same theme/watermark/protected-mode properties, and the same `Go to page` / `Next page` / `Previous page` actions as the PDF element.
+
+| Property | Type | Description |
+|---|---|---|
+| Document Url | file/text | `.doc` or `.docx` file to render |
+| Starting Page Number | number | Page shown after load (docx only) |
+| Viewer Language, Initial Zoom, Search Word, Rename Download File, App Name | — | Same as Pdf View |
+| Theme / Background / Text / Accent Color, Watermark Text / Opacity | — | Same as Pdf View |
+| Protected Mode, Show Thumbnails Panel, Remove Download/Print/Search/Left Toggle/Bookmark/Presentation Mode/Top Toolbar | checkbox | Same as Pdf View |
+
+Exposed states: `Is Valid Document?`, `Total Document Pages`, `Current Page`, `Zoom Level (%)`, `Is Loading?`, `Search Results Count`, `Document Title`, `Document Author`, `Error Message`. Events: `Document is loaded`, `Document failed to load`, `Page changed`, `Search completed`, `Download started`, `Print started`.
+
+Dependencies are loaded from jsDelivr: `jszip@3.10.1` and `docx-preview@0.3.6`.

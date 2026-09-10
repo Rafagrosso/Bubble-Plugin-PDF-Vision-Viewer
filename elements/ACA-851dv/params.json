@@ -6,56 +6,56 @@
         "height": 400,
         "width": 600
     },
-    "display": "Pdf View",
+    "display": "Doc View",
     "events": {
-        "ABQ": {
-            "caption": "PDF is loaded",
+        "ACN": {
+            "caption": "Document is loaded",
             "doc": "O documento terminou de carregar",
-            "name": "pdf_loaded"
+            "name": "document_loaded"
         },
-        "ABR": {
-            "caption": "PDF failed to load",
+        "ACO": {
+            "caption": "Document failed to load",
             "doc": "A URL não pôde ser carregada (consulte Error Message)",
-            "name": "pdf_error"
+            "name": "document_error"
         },
-        "ABS": {
+        "ACP": {
             "caption": "Page changed",
             "doc": "A página visível mudou (rolagem, clique ou ação)",
             "name": "page_changed"
         },
-        "ABT": {
+        "ACQ": {
             "caption": "Search completed",
             "doc": "Uma busca terminou (consulte Search Results Count)",
             "name": "search_completed"
         },
-        "ABU": {
+        "ACR": {
             "caption": "Download started",
             "doc": "Download iniciado (botão da toolbar ou qualquer ação que baixa arquivo)",
             "name": "download_started"
         },
-        "ABV": {
+        "ACS": {
             "caption": "Print started",
             "doc": "Impressão iniciada (botão ou ação)",
             "name": "print_started"
         }
     },
     "fields": {
-        "AAz": {
+        "AAA": {
             "caption": "Conteúdo e comportamento",
             "editor": "Label",
             "name": "Conteúdo e comportamento",
             "rank": 0
         },
-        "AAE": {
-            "caption": "PDF Url",
+        "AAB": {
+            "caption": "Document Url",
             "default_val": "",
-            "doc": "choose the pdf url you want to render & Must include https:// or http://",
+            "doc": "Escolha a URL do arquivo .doc ou .docx a renderizar & deve incluir https:// ou http://",
             "editor": "DynamicValue",
-            "name": "pdf_url",
+            "name": "document_url",
             "rank": 1,
             "value": "file"
         },
-        "AAQ": {
+        "AAC": {
             "caption": "Starting Page Number",
             "default_val": 1,
             "editor": "DynamicValue",
@@ -63,7 +63,7 @@
             "rank": 2,
             "value": "number"
         },
-        "AAy": {
+        "AAD": {
             "caption": "Initial Zoom",
             "default_val": "auto",
             "editor": "Dropdown",
@@ -71,7 +71,7 @@
             "options": "auto,page-width,page-fit,50,75,100,125,150,200",
             "rank": 3
         },
-        "AAR": {
+        "AAE": {
             "caption": "Viewer Language",
             "default_val": "en-US",
             "doc": "Viewer language are en-US,fr",
@@ -83,7 +83,7 @@
             "rank": 4,
             "value": "text"
         },
-        "AAT": {
+        "AAF": {
             "caption": "Search Word",
             "doc": "Busca e destaca automaticamente ao carregar; reage a mudanças dinâmicas",
             "editor": "DynamicValue",
@@ -93,17 +93,17 @@
             "rank": 5,
             "value": "text"
         },
-        "AAS": {
+        "AAG": {
             "caption": "Rename Download File",
             "default_val": "",
-            "doc": "If you are renaming the downloading file then please include file extension (Example document.pdf)",
+            "doc": "Se for renomear o arquivo baixado, inclua a extensão (Exemplo: document.docx)",
             "editor": "DynamicValue",
             "name": "rename_download_file",
             "optional": true,
             "rank": 6,
             "value": "text"
         },
-        "AAU": {
+        "AAH": {
             "caption": "App Name",
             "editor": "DynamicValue",
             "name": "app_name",
@@ -111,13 +111,13 @@
             "rank": 7,
             "value": "text"
         },
-        "ABA": {
+        "AAI": {
             "caption": "Aparência",
             "editor": "Label",
             "name": "Aparência",
             "rank": 8
         },
-        "ABB": {
+        "AAJ": {
             "caption": "Theme",
             "default_val": "dark",
             "doc": "dark ou light; as cores abaixo sobrepõem o tema",
@@ -126,7 +126,7 @@
             "options": "dark,light",
             "rank": 9
         },
-        "AAV": {
+        "AAK": {
             "caption": "Background Color",
             "default_val": "rgba(42,42,46,1)",
             "doc": "Fundo do viewer",
@@ -135,7 +135,7 @@
             "name": "background_color",
             "rank": 10
         },
-        "AAW": {
+        "AAL": {
             "caption": "Text Color",
             "default_val": "rgba(245,245,245,1)",
             "doc": "Texto da toolbar/UI",
@@ -143,7 +143,7 @@
             "name": "text_color",
             "rank": 11
         },
-        "ABC": {
+        "AAM": {
             "caption": "Accent Color",
             "default_val": "rgba(59,130,246,1)",
             "doc": "Controles ativos e destaque da busca",
@@ -151,7 +151,7 @@
             "name": "accent_color",
             "rank": 12
         },
-        "ABE": {
+        "AAN": {
             "caption": "Watermark Text",
             "doc": "Marca d'água diagonal repetida (ex.: e-mail do usuário atual) ",
             "editor": "DynamicValue",
@@ -159,7 +159,7 @@
             "rank": 13,
             "value": "text"
         },
-        "ABF": {
+        "AAO": {
             "caption": "Watermark Opacity",
             "default_val": 0.14,
             "doc": "Opacidade da marca d'água (0 a 1)",
@@ -169,13 +169,13 @@
             "rank": 14,
             "value": "number"
         },
-        "ABG": {
+        "AAP": {
             "caption": "Proteção e Painéis da UI",
             "editor": "Label",
             "name": "Proteção e Painéis da UI",
             "rank": 15
         },
-        "ABH": {
+        "AAQ": {
             "caption": "Protected Mode",
             "default_val": false,
             "doc": "Esconde download/print; bloqueia clique-direito, seleção de texto e Ctrl/Cmd+S/P/C",
@@ -183,15 +183,15 @@
             "name": "protected_mode",
             "rank": 16
         },
-        "ABD": {
+        "AAR": {
             "caption": "Show Thumbnails Panel",
             "default_val": true,
-            "doc": "Abre a barra de miniaturas ao carregar",
+            "doc": "Abre a barra de miniaturas/páginas ao carregar",
             "editor": "Checkbox",
             "name": "show_thumbnails",
             "rank": 17
         },
-        "AAH": {
+        "AAS": {
             "caption": "Remove Download",
             "default_val": false,
             "doc": "Esconde o botão de download",
@@ -199,7 +199,7 @@
             "name": "remove_download",
             "rank": 18
         },
-        "AAI": {
+        "AAT": {
             "caption": "Remove Print",
             "default_val": false,
             "doc": "Esconde o botão de imprimir",
@@ -207,7 +207,7 @@
             "name": "remove_print",
             "rank": 19
         },
-        "AAJ": {
+        "AAU": {
             "caption": "Remove Search",
             "default_val": false,
             "doc": "Esconde a caixa de busca",
@@ -215,7 +215,7 @@
             "name": "remove_search",
             "rank": 20
         },
-        "AAK": {
+        "AAV": {
             "caption": "Remove Left Toggle",
             "default_val": false,
             "doc": "Esconde o botão da barra lateral",
@@ -223,15 +223,15 @@
             "name": "remove_left_toggle",
             "rank": 21
         },
-        "AAM": {
+        "AAW": {
             "caption": "Remove Bookmark",
             "default_val": false,
-            "doc": "Esconde a aba de marcadores (outline)",
+            "doc": "Esconde a aba de marcadores (títulos/headings do documento)",
             "editor": "Checkbox",
             "name": "remove_bookmark",
             "rank": 22
         },
-        "AAL": {
+        "AAX": {
             "caption": "Remove Presentation Mode",
             "default_val": false,
             "doc": "Esconde o botão de tela cheia",
@@ -239,7 +239,7 @@
             "name": "remove_presentation_mode",
             "rank": 23
         },
-        "AAN": {
+        "AAY": {
             "caption": "Remove Top Toolbar",
             "default_val": false,
             "doc": "Esconde a toolbar inteira",
@@ -247,20 +247,20 @@
             "name": "remove_top_toolbar",
             "rank": 24
         },
-        "ABI": {
+        "AAZ": {
             "caption": "Legadas",
             "editor": "Label",
             "name": "Legadas",
             "rank": 25
         },
-        "AAF": {
-            "caption": "pdf viewer ID",
+        "ABA": {
+            "caption": "doc viewer ID",
             "editor": "DynamicValue",
-            "name": "pdf_viewer_id",
+            "name": "doc_viewer_id",
             "rank": 26,
             "value": "text"
         },
-        "AAG": {
+        "ABB": {
             "caption": "Page to Fit",
             "default_val": false,
             "editor": "Checkbox",
@@ -269,32 +269,32 @@
         }
     },
     "has_reset_fn": true,
-    "icon": "ion-eye",
+    "icon": "ion-document-text",
     "property_applications": {
         "BoxShadow": true,
         "MinWidth": true,
         "resizable": true
     },
     "states": {
-        "AAX": {
-            "caption": "Is Valid PDF?",
-            "doc": "It returns valid pdf or not",
+        "ACE": {
+            "caption": "Is Valid Document?",
+            "doc": "It returns valid document or not",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
-            "name": "is_valid_pdf",
+            "name": "is_valid_document",
             "value": "boolean"
         },
-        "AAY": {
-            "caption": "Total Pdf Pages",
-            "doc": "It return number of pdf pages",
+        "ACF": {
+            "caption": "Total Document Pages",
+            "doc": "It return number of document pages",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
             "name": "total_pages",
             "value": "number"
         },
-        "ABJ": {
+        "ACG": {
             "caption": "Current Page",
             "doc": "Página visível agora (atualiza ao rolar/navegar)",
             "initialization_code": {
@@ -303,7 +303,7 @@
             "name": "current_page",
             "value": "number"
         },
-        "ABK": {
+        "ACH": {
             "caption": "Zoom Level (%)",
             "doc": "Zoom atual em % (ex.: 142)",
             "initialization_code": {
@@ -312,16 +312,16 @@
             "name": "zoom_level",
             "value": "number"
         },
-        "ABL": {
+        "ACI": {
             "caption": "Is Loading?",
-            "doc": "true durante download/preparação do PDF",
+            "doc": "true durante download/preparação do documento",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
             "name": "is_loading",
             "value": "boolean"
         },
-        "ABM": {
+        "ACJ": {
             "caption": "Search Results Count",
             "doc": "Nº de ocorrências da última busca",
             "initialization_code": {
@@ -330,25 +330,25 @@
             "name": "search_results_count",
             "value": "number"
         },
-        "ABN": {
-            "caption": "PDF Title",
+        "ACK": {
+            "caption": "Document Title",
             "doc": "Título dos metadados (pode ser vazio)",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
-            "name": "pdf_title",
+            "name": "document_title",
             "value": "text"
         },
-        "ABO": {
-            "caption": "PDF Author",
+        "ACL": {
+            "caption": "Document Author",
             "doc": "Autor dos metadados (pode ser vazio)",
             "initialization_code": {
                 "fn": "function(properties, context) {\n\n\n\n}"
             },
-            "name": "pdf_author",
+            "name": "document_author",
             "value": "text"
         },
-        "ABP": {
+        "ACM": {
             "caption": "Error Message",
             "doc": "Mensagem técnica do último erro (vazio quando ok)",
             "initialization_code": {
