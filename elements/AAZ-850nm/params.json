@@ -1,6 +1,9 @@
 {
+    "add_hover_pressed": true,
     "add_is_visible": true,
     "add_large_file_upload_properties": false,
+    "can_fit_height": true,
+    "can_fit_width": true,
     "category": "visual elements",
     "default_dim": {
         "height": 400,
@@ -40,12 +43,6 @@
         }
     },
     "fields": {
-        "AAz": {
-            "caption": "Conteúdo e comportamento",
-            "editor": "Label",
-            "name": "Conteúdo e comportamento",
-            "rank": 0
-        },
         "AAE": {
             "caption": "PDF Url",
             "default_val": "",
@@ -55,141 +52,19 @@
             "rank": 1,
             "value": "file"
         },
-        "AAQ": {
-            "caption": "Starting Page Number",
-            "default_val": 1,
+        "AAF": {
+            "caption": "pdf viewer ID",
             "editor": "DynamicValue",
-            "name": "start_page",
-            "rank": 2,
-            "value": "number"
-        },
-        "AAy": {
-            "caption": "Initial Zoom",
-            "default_val": "auto",
-            "editor": "Dropdown",
-            "name": "initial_zoom",
-            "options": "auto,page-width,page-fit,50,75,100,125,150,200",
-            "rank": 3
-        },
-        "AAR": {
-            "caption": "Viewer Language",
-            "default_val": "en-US",
-            "doc": "Viewer language are en-US,fr",
-            "editor": "DynamicValue",
-            "in_style": false,
-            "name": "viewer_language",
-            "optional": true,
-            "options": "",
-            "rank": 4,
+            "name": "pdf_viewer_id",
+            "rank": 26,
             "value": "text"
         },
-        "AAT": {
-            "caption": "Search Word",
-            "doc": "Busca e destaca automaticamente ao carregar; reage a mudanças dinâmicas",
-            "editor": "DynamicValue",
-            "long_text": true,
-            "name": "search_word",
-            "optional": true,
-            "rank": 5,
-            "value": "text"
-        },
-        "AAS": {
-            "caption": "Rename Download File",
-            "default_val": "",
-            "doc": "If you are renaming the downloading file then please include file extension (Example document.pdf)",
-            "editor": "DynamicValue",
-            "name": "rename_download_file",
-            "optional": true,
-            "rank": 6,
-            "value": "text"
-        },
-        "AAU": {
-            "caption": "App Name",
-            "editor": "DynamicValue",
-            "name": "app_name",
-            "optional": true,
-            "rank": 7,
-            "value": "text"
-        },
-        "ABA": {
-            "caption": "Aparência",
-            "editor": "Label",
-            "name": "Aparência",
-            "rank": 8
-        },
-        "ABB": {
-            "caption": "Theme",
-            "default_val": "dark",
-            "doc": "dark ou light; as cores abaixo sobrepõem o tema",
-            "editor": "Dropdown",
-            "name": "theme",
-            "options": "dark,light",
-            "rank": 9
-        },
-        "AAV": {
-            "caption": "Background Color",
-            "default_val": "rgba(42,42,46,1)",
-            "doc": "Fundo do viewer",
-            "editor": "Color",
-            "in_style": false,
-            "name": "background_color",
-            "rank": 10
-        },
-        "AAW": {
-            "caption": "Text Color",
-            "default_val": "rgba(245,245,245,1)",
-            "doc": "Texto da toolbar/UI",
-            "editor": "Color",
-            "name": "text_color",
-            "rank": 11
-        },
-        "ABC": {
-            "caption": "Accent Color",
-            "default_val": "rgba(59,130,246,1)",
-            "doc": "Controles ativos e destaque da busca",
-            "editor": "Color",
-            "name": "accent_color",
-            "rank": 12
-        },
-        "ABE": {
-            "caption": "Watermark Text",
-            "doc": "Marca d'água diagonal repetida (ex.: e-mail do usuário atual) ",
-            "editor": "DynamicValue",
-            "name": "watermark_text",
-            "rank": 13,
-            "value": "text"
-        },
-        "ABF": {
-            "caption": "Watermark Opacity",
-            "default_val": 0.14,
-            "doc": "Opacidade da marca d'água (0 a 1)",
-            "editor": "DynamicValue",
-            "name": "watermark_opacity",
-            "optional": true,
-            "rank": 14,
-            "value": "number"
-        },
-        "ABG": {
-            "caption": "Proteção e Painéis da UI",
-            "editor": "Label",
-            "name": "Proteção e Painéis da UI",
-            "rank": 15
-        },
-        "ABH": {
-            "caption": "Protected Mode",
+        "AAG": {
+            "caption": "Page to Fit",
             "default_val": false,
-            "doc": "Esconde download/print; bloqueia clique-direito, seleção de texto e Ctrl/Cmd+S/P/C",
             "editor": "Checkbox",
-            "name": "protected_mode",
-            "rank": 16
-        },
-        "ABD": {
-            "caption": "Show Thumbnails Panel",
-            "default_val": true,
-            "doc": "Abre a barra de miniaturas ao carregar",
-            "editor": "Checkbox",
-            "name": "show_thumbnails",
-            "rank": 17
+            "name": "page_to_fit",
+            "rank": 27
         },
         "AAH": {
             "caption": "Remove Download",
@@ -223,14 +98,6 @@
             "name": "remove_left_toggle",
             "rank": 21
         },
-        "AAM": {
-            "caption": "Remove Bookmark",
-            "default_val": false,
-            "doc": "Esconde a aba de marcadores (outline)",
-            "editor": "Checkbox",
-            "name": "remove_bookmark",
-            "rank": 22
-        },
         "AAL": {
             "caption": "Remove Presentation Mode",
             "default_val": false,
@@ -238,6 +105,14 @@
             "editor": "Checkbox",
             "name": "remove_presentation_mode",
             "rank": 23
+        },
+        "AAM": {
+            "caption": "Remove Bookmark",
+            "default_val": false,
+            "doc": "Esconde a aba de marcadores (outline)",
+            "editor": "Checkbox",
+            "name": "remove_bookmark",
+            "rank": 22
         },
         "AAN": {
             "caption": "Remove Top Toolbar",
@@ -247,32 +122,164 @@
             "name": "remove_top_toolbar",
             "rank": 24
         },
+        "AAQ": {
+            "caption": "Starting Page Number",
+            "default_val": 1,
+            "editor": "DynamicValue",
+            "name": "start_page",
+            "rank": 2,
+            "value": "number"
+        },
+        "AAR": {
+            "caption": "Viewer Language",
+            "default_val": "en-US",
+            "doc": "Viewer language are en-US,fr",
+            "editor": "DynamicValue",
+            "in_style": false,
+            "name": "viewer_language",
+            "optional": true,
+            "options": "",
+            "rank": 4,
+            "value": "text"
+        },
+        "AAS": {
+            "caption": "Rename Download File",
+            "default_val": "",
+            "doc": "If you are renaming the downloading file then please include file extension (Example document.pdf)",
+            "editor": "DynamicValue",
+            "name": "rename_download_file",
+            "optional": true,
+            "rank": 6,
+            "value": "text"
+        },
+        "AAT": {
+            "caption": "Search Word",
+            "doc": "Busca e destaca automaticamente ao carregar; reage a mudanças dinâmicas",
+            "editor": "DynamicValue",
+            "long_text": true,
+            "name": "search_word",
+            "optional": true,
+            "rank": 5,
+            "value": "text"
+        },
+        "AAU": {
+            "caption": "App Name",
+            "editor": "DynamicValue",
+            "name": "app_name",
+            "optional": true,
+            "rank": 7,
+            "value": "text"
+        },
+        "AAV": {
+            "caption": "Background Color",
+            "default_val": "rgba(42,42,46,1)",
+            "doc": "Fundo do viewer",
+            "editor": "Color",
+            "in_style": false,
+            "name": "background_color",
+            "rank": 10
+        },
+        "AAW": {
+            "caption": "Text Color",
+            "default_val": "rgba(245,245,245,1)",
+            "doc": "Texto da toolbar/UI",
+            "editor": "Color",
+            "name": "text_color",
+            "rank": 11
+        },
+        "AAy": {
+            "caption": "Initial Zoom",
+            "default_val": "auto",
+            "editor": "Dropdown",
+            "name": "initial_zoom",
+            "options": "auto,page-width,page-fit,50,75,100,125,150,200",
+            "rank": 3
+        },
+        "AAz": {
+            "caption": "Conteúdo e comportamento",
+            "editor": "Label",
+            "name": "Conteúdo e comportamento",
+            "rank": 0
+        },
+        "ABA": {
+            "caption": "Aparência",
+            "editor": "Label",
+            "name": "Aparência",
+            "rank": 8
+        },
+        "ABB": {
+            "caption": "Theme",
+            "default_val": "dark",
+            "doc": "dark ou light; as cores abaixo sobrepõem o tema",
+            "editor": "Dropdown",
+            "name": "theme",
+            "options": "dark,light",
+            "rank": 9
+        },
+        "ABC": {
+            "caption": "Accent Color",
+            "default_val": "rgba(59,130,246,1)",
+            "doc": "Controles ativos e destaque da busca",
+            "editor": "Color",
+            "name": "accent_color",
+            "rank": 12
+        },
+        "ABD": {
+            "caption": "Show Thumbnails Panel",
+            "default_val": true,
+            "doc": "Abre a barra de miniaturas ao carregar",
+            "editor": "Checkbox",
+            "name": "show_thumbnails",
+            "rank": 17
+        },
+        "ABE": {
+            "caption": "Watermark Text",
+            "doc": "Marca d'água diagonal repetida (ex.: e-mail do usuário atual) ",
+            "editor": "DynamicValue",
+            "name": "watermark_text",
+            "rank": 13,
+            "value": "text"
+        },
+        "ABF": {
+            "caption": "Watermark Opacity",
+            "default_val": 0.14,
+            "doc": "Opacidade da marca d'água (0 a 1)",
+            "editor": "DynamicValue",
+            "name": "watermark_opacity",
+            "optional": true,
+            "rank": 14,
+            "value": "number"
+        },
+        "ABG": {
+            "caption": "Proteção e Painéis da UI",
+            "editor": "Label",
+            "name": "Proteção e Painéis da UI",
+            "rank": 15
+        },
+        "ABH": {
+            "caption": "Protected Mode",
+            "default_val": false,
+            "doc": "Esconde download/print; bloqueia clique-direito, seleção de texto e Ctrl/Cmd+S/P/C",
+            "editor": "Checkbox",
+            "name": "protected_mode",
+            "rank": 16
+        },
         "ABI": {
             "caption": "Legadas",
             "editor": "Label",
             "name": "Legadas",
             "rank": 25
-        },
-        "AAF": {
-            "caption": "pdf viewer ID",
-            "editor": "DynamicValue",
-            "name": "pdf_viewer_id",
-            "rank": 26,
-            "value": "text"
-        },
-        "AAG": {
-            "caption": "Page to Fit",
-            "default_val": false,
-            "editor": "Checkbox",
-            "name": "page_to_fit",
-            "rank": 27
         }
     },
     "has_reset_fn": true,
-    "icon": "ion-eye",
+    "icon": "ion-document-text",
     "property_applications": {
+        "Background": true,
+        "Border": true,
         "BoxShadow": true,
+        "Font": true,
         "MinWidth": true,
+        "Padding": true,
         "resizable": true
     },
     "states": {
