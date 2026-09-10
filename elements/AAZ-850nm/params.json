@@ -56,6 +56,7 @@
             "caption": "pdf viewer ID",
             "editor": "DynamicValue",
             "name": "pdf_viewer_id",
+            "optional": true,
             "rank": 26,
             "value": "text"
         },
@@ -185,6 +186,7 @@
             "doc": "Texto da toolbar/UI",
             "editor": "Color",
             "name": "text_color",
+            "optional": true,
             "rank": 11
         },
         "AAy": {
@@ -237,6 +239,7 @@
             "doc": "Marca d'água diagonal repetida (ex.: e-mail do usuário atual) ",
             "editor": "DynamicValue",
             "name": "watermark_text",
+            "optional": true,
             "rank": 13,
             "value": "text"
         },

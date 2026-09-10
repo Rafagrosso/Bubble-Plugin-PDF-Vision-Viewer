@@ -144,6 +144,7 @@
             "doc": "Texto da toolbar/UI",
             "editor": "Color",
             "name": "text_color",
+            "optional": true,
             "rank": 11
         },
         "AAM": {
@@ -159,6 +160,7 @@
             "doc": "Marca d'água diagonal repetida (ex.: e-mail do usuário atual) ",
             "editor": "DynamicValue",
             "name": "watermark_text",
+            "optional": true,
             "rank": 13,
             "value": "text"
         },
@@ -260,6 +262,7 @@
             "caption": "doc viewer ID",
             "editor": "DynamicValue",
             "name": "doc_viewer_id",
+            "optional": true,
             "rank": 26,
             "value": "text"
         },
